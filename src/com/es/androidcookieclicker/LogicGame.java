@@ -3,7 +3,7 @@ package com.es.androidcookieclicker;
 public class LogicGame {
 	
 	private static Double cookies = 0.0;
-	private static double cps = 0.0;
+	private static double cps = 1.0;
 	
 	public static double getCps() {
 		return cps;

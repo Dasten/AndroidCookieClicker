@@ -3,8 +3,11 @@
  */
 package com.es.androidcookieclicker;
 
+import java.math.BigDecimal;
+
 import android.os.Handler;
 import android.os.Message;
+import android.widget.TextView;
 
 /**
  * @author pfranco
@@ -12,8 +15,18 @@ import android.os.Message;
  */
 public class CookieHandler extends Handler {
 	
+	TextView out;
+	
+	CookieHandler(TextView out) {
+		this.out = out;
+	}
+	
 	@Override
 	public void handleMessage(Message msg) {
 		LogicGame.incrementCookies();
+		
+		BigDecimal bd = new BigDecimal(LogicGame.getCookies());
+		
+		out.setText(((Integer)bd.intValue()).toString());
 	}
 }

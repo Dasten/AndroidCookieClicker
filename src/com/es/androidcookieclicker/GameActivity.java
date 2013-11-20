@@ -4,12 +4,16 @@ package com.es.androidcookieclicker;
 import java.math.BigDecimal;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
 public class GameActivity extends Activity {
+	
+	Handler handler;
+	CookieThread cookieThread;
 	
 	TextView cookiesCount;
 
@@ -19,6 +23,11 @@ public class GameActivity extends Activity {
 		setContentView(R.layout.activity_game);
 		
 		cookiesCount = (TextView)findViewById(R.id.numberCookies);
+		
+		handler = new CookieHandler(cookiesCount);
+		cookieThread = new CookieThread(handler);
+		
+		
 		
 	}
 
@@ -35,6 +44,19 @@ public class GameActivity extends Activity {
 		BigDecimal bd = new BigDecimal(LogicGame.getCookies());
 		
 		cookiesCount.setText(((Integer)bd.intValue()).toString());
+	}
+	
+	public void onStart() {
+		super.onStart();
+		
+		Thread backgroud = new Thread(cookieThread);
+		cookieThread.isRunning.set(true);
+		backgroud.start();
+	}
+	
+	public void onStop() {
+		super.onStop();
+		cookieThread.isRunning.set(false);
 	}
 
 }
