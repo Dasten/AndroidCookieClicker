@@ -6,8 +6,8 @@
     tools:context=".GameActivity" >
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="2"
         android:background="#FF0000"
         android:orientation="vertical" >
@@ -15,22 +15,42 @@
         <Button
             android:id="@+id/cookieButton"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="0dp"
             android:text="@string/text_cookie_button"
+            android:layout_weight="1"
             android:onClick="addCookies" />
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="#FF0000" 
-            android:orientation="vertical">
-            
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:textAlignment="center">
             
             <TextView
     			android:id="@+id/textNumberCookies"
    			 	android:layout_width="fill_parent"
-    			android:layout_height="fill_parent"
-    			android:text="@string/text_cookies" >
+    			android:layout_height="0dp"
+    			android:text="@string/text_number_cookies"
+    			android:layout_weight="1"
+    			android:paddingTop="5dp"
+    			android:paddingLeft="5dp"
+    			android:paddingRight="5dp"
+    			android:paddingBottom="5dp">
+			</TextView>
+			
+            <TextView
+    			android:id="@+id/textCookies"
+   			 	android:layout_width="fill_parent"
+    			android:layout_height="0dp"
+    			android:text="@string/text_cookies" 
+    			android:layout_weight="1"
+    			android:paddingTop="5dp"
+    			android:paddingLeft="5dp"
+    			android:paddingRight="5dp"
+    			android:paddingBottom="5dp">
 			</TextView>
 			
             <TextView
@@ -39,34 +59,43 @@
     			android:layout_height="fill_parent">
 			</TextView>
 
-            
             <TextView 
     			android:id="@+id/textCps"
    			 	android:layout_width="fill_parent"
-    			android:layout_height="fill_parent"
-    			android:text="@string/text_cps" >
+    			android:layout_height="0dp"
+    			android:text="@string/text_cps" 
+    			android:layout_weight="1"
+    			android:paddingTop="5dp"
+    			android:paddingLeft="5dp"
+    			android:paddingRight="5dp"
+    			android:paddingBottom="5dp">
 			</TextView>
 
             <TextView 
     			android:id="@+id/textCpc"
    			 	android:layout_width="fill_parent"
-    			android:layout_height="fill_parent"
-    			android:text="@string/text_cpc" >
+    			android:layout_height="0dp"
+    			android:text="@string/text_cpc" 
+    			android:layout_weight="1"
+    			android:paddingTop="5dp"
+    			android:paddingLeft="5dp"
+    			android:paddingRight="5dp"
+    			android:paddingBottom="5dp">
 			</TextView>
         </LinearLayout>
     </LinearLayout>
 
     <ListView
-        android:id="@android:id/list"
-        android:layout_width="200dp"
+        android:id="@+id/powerUpsList"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="#00FF00"
         android:drawSelectorOnTop="false" />
 
     <ListView
-        android:id="@android:id/list"
-        android:layout_width="100dp"
+        android:id="@+id/itemsList"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="#0000FF"
         android:drawSelectorOnTop="false" />
