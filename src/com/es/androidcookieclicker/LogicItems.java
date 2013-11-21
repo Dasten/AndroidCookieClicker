@@ -10,12 +10,15 @@ public class LogicItems extends ListActivity {
 	
 	private int id;
 	private String name;
+	private double cps;
+
 	private int price;
 	private double factor;
 	
-	LogicItems(int id, String name, int price, double factor) {
+	LogicItems(int id, String name, double cps, int price, double factor) {
 		this.id = id;
 		this.name = name;
+		this.cps = cps;
 		this.price = price;
 		this.factor = factor;
 	}
@@ -69,12 +72,32 @@ public class LogicItems extends ListActivity {
 		this.factor = factor;
 	}
 	
+	/**
+	 * @return the cps
+	 */
+	public double getCps() {
+		return cps;
+	}
+
+	/**
+	 * @param cps the cps to set
+	 */
+	public void setCps(double cps) {
+		this.cps = cps;
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return name + "| Price: " + price;
+	}
+	
+	public int updatePrice() {
+		price *= factor;
+		
+		return price;
 	}
 	
 	

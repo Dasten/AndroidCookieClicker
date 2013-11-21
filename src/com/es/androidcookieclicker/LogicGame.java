@@ -1,15 +1,18 @@
 package com.es.androidcookieclicker;
 
+import android.widget.ListView;
+
 public class LogicGame {
 	
 	private static Double cookies = 0.0;
-	private static double cps = 0.1;
+	private static Double cps = 0.1;
 	
-	public static double getCps() {
+
+	public static Double getCps() {
 		return cps;
 	}
 
-	public static void setCps(double cps) {
+	public static void setCps(Double cps) {
 		LogicGame.cps = cps;
 	}
 
@@ -27,6 +30,21 @@ public class LogicGame {
 	
 	public static void incrementCookies(double numOfCookies) {
 		cookies += numOfCookies;
+	}
+	
+	public static void incrementCookiesPerSecond(double cps) {
+		LogicGame.cps += cps;
+	}
+	
+	public static void decrementCookies(double cookies) {
+		double cookiesAux = LogicGame.cookies - cookies;
+		
+		if(cookiesAux < 0) {
+			LogicGame.cookies = 0.0;
+		} else {
+			LogicGame.cookies = cookiesAux;
+		}
+		
 	}
 	
 }
