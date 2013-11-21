@@ -23,9 +23,13 @@ public class LogicGame {
 	public static Double getCookies() {
 		return cookies;
 	}
-
+	
 	public static void incrementCookies() {
 		cookies++;
+	}
+
+	public static void incrementCookiesPerSecond() {
+		cookies += cps/10;
 	}
 	
 	public static void incrementCookies(double numOfCookies) {

@@ -27,7 +27,7 @@ public class CookieThread implements Runnable {
 	public void run() {
 		try {
 			while(true) {
-				Thread.sleep((long) (1000/LogicGame.getCps()));
+				Thread.sleep(100);
 				handler.sendMessage(handler.obtainMessage());
 			}
 			

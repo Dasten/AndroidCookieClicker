@@ -23,7 +23,7 @@ public class CookieHandler extends Handler {
 	
 	@Override
 	public void handleMessage(Message msg) {
-		LogicGame.incrementCookies();
+		LogicGame.incrementCookiesPerSecond();
 		
 		BigDecimal bd = new BigDecimal(LogicGame.getCookies());
 		
