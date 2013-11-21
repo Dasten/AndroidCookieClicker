@@ -23,23 +23,23 @@ public class ArrayAdapterCookie<Object> extends ArrayAdapter<Object> {
 	
 	@Override
 	public View getView(int position, View view, ViewGroup vg){
-		/*int countElements = vg.getChildCount();
-		
-		for(int i = 0; i < countElement)*/
-		
 		View row = super.getView(position, view, vg);
 		
-		if(!row.isEnabled()) {
-			row.setBackgroundColor(2);
-		} else {
-			row.setBackgroundColor(1);
-		}
+		LogicItems item = (LogicItems) getItem(position);
+		
+		Double c = LogicGame.getCookies();
+		
+		if(LogicGame.getCookies() >= item.getPrice()){
+			row.setEnabled(true);
+	    } else {
+	    	row.setEnabled(false);
+	    }
 		
 		return row;
 		
 	}
 
-	@Override
+	/*@Override
 	public boolean isEnabled(int position) {
 	    LogicItems item = (LogicItems) getItem(position);
 		
@@ -48,5 +48,5 @@ public class ArrayAdapterCookie<Object> extends ArrayAdapter<Object> {
 	    }
 		
 	    return false;
-	}
+	}*/
 }
