@@ -5,7 +5,9 @@ package com.es.androidcookieclicker;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 
 /**
  * @author pablo.fernandez
@@ -28,7 +30,18 @@ public class CookieThread implements Runnable {
 		try {
 			while(true) {
 				Thread.sleep(100);
-				handler.sendMessage(handler.obtainMessage());
+				
+				//Logic game
+				LogicGame.tick();
+				
+				Message msg = handler.obtainMessage();
+				
+				Bundle bundle = msg.getData();
+				
+				bundle.putDouble(LogicGame.noc_string, LogicGame.getCookies());
+				bundle.putDouble(LogicGame.cps_string, LogicGame.getCps());
+				
+				handler.sendMessage(msg);
 			}
 			
 		} catch (InterruptedException e) {

@@ -36,7 +36,7 @@ public class GameActivity extends Activity {
 		cookiesCount = (TextView)findViewById(R.id.textNumberCookies);
 		cps = (TextView)findViewById(R.id.cpsValue);
 		
-		handler = new CookieHandler(cookiesCount);
+		handler = new CookieHandler(cookiesCount, cps);
 		cookieThread = new CookieThread(handler);
 		
 		ListView listLogicItems = (ListView)findViewById(R.id.itemsList);
@@ -71,9 +71,6 @@ public class GameActivity extends Activity {
 	    		item.updatePrice();
 	    		
 	    		adapterItemList.notifyDataSetChanged();
-	    		
-	    		cps.setText(LogicGame.getCps().toString());
-	    		showCookies();
 	        };
 		});
 	}
@@ -89,14 +86,6 @@ public class GameActivity extends Activity {
 	
 	public void addCookies(View view) {
 		LogicGame.incrementCookies();
-		
-		showCookies();
-	}
-	
-	private void showCookies() {
-		BigDecimal bd = new BigDecimal(LogicGame.getCookies());
-		
-		cookiesCount.setText(((Integer)bd.intValue()).toString());
 	}
 	
 	public void onStart() {
