@@ -32,10 +32,10 @@ public class GameActivity extends Activity {
 		
 		/*
 		setListAdapter(new ArrayAdapter<String>(this,
-												android.R.layout.itemsList,
+												android.R.id.itemList,
 												items));
-												*/		
-		
+											
+		*/
 	}
 
 	@Override
