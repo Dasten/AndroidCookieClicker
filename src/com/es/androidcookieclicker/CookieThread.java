@@ -39,6 +39,7 @@ public class CookieThread implements Runnable {
 				Bundle bundle = msg.getData();
 				
 				bundle.putDouble(LogicGame.noc_string, LogicGame.getCookies());
+				bundle.putDouble(LogicGame.cps_string, LogicGame.getCps());
 				
 				handler.sendMessage(msg);
 			}

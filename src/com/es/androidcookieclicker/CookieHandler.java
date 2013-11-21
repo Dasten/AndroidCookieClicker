@@ -16,17 +16,22 @@ import android.widget.TextView;
 public class CookieHandler extends Handler {
 	
 	TextView textViewNoc;
+	TextView textViewCps;
 	
-	CookieHandler(TextView out) {
-		this.textViewNoc = out;
+	CookieHandler(TextView textViewNoc, TextView textViewCps) {
+		this.textViewNoc = textViewNoc;
+		this.textViewCps = textViewCps;
+		
 	}
 	
 	@Override
 	public void handleMessage(Message msg) {
 		Double noc = msg.getData().getDouble(LogicGame.noc_string);
+		Double cps = msg.getData().getDouble(LogicGame.cps_string);
 		
 		BigDecimal bd = new BigDecimal(noc);
 		
 		textViewNoc.setText(((Integer)bd.intValue()).toString());
+		textViewCps.setText(cps.toString());
 	}
 }
