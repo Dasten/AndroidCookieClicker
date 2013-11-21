@@ -14,15 +14,17 @@ public class LogicItems extends ListActivity {
 	private String name;
 	private double cps;
 
+	private int basePrice;
 	private int price;
-	private double factor;
+	private int level;
 	
-	LogicItems(int id, String name, double cps, int price, double factor) {
+	LogicItems(int id, String name, double cps, int price) {
 		this.id = id;
 		this.name = name;
 		this.cps = cps;
 		this.price = price;
-		this.factor = factor;
+		this.basePrice = price;
+		this.level = 1;
 	}
 	
 	/**
@@ -64,21 +66,21 @@ public class LogicItems extends ListActivity {
 	/**
 	 * @return the factor
 	 */
-	public double getFactor() {
-		return factor;
-	}
-	/**
-	 * @param factor the factor to set
-	 */
-	public void setFactor(double factor) {
-		this.factor = factor;
-	}
+
 	
 	/**
 	 * @return the cps
 	 */
 	public double getCps() {
 		return cps;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
 	}
 
 	/**
@@ -97,8 +99,8 @@ public class LogicItems extends ListActivity {
 	}
 	
 	public int updatePrice() {
-		price *= factor;
-		
+		price *= (this.basePrice * (Math.pow(1.15, level) - 1)) / 0.15;
+		this.level++;
 		return price;
 	}
 }

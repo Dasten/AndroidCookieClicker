@@ -43,12 +43,12 @@ public class GameActivity extends Activity {
 		
 		//Estos datos lo mejor es que vengan de un json y los cargamos desde aqui
 		LogicItems[] items = {
-				new LogicItems(1, "Cursor", 0.1, 15, 1.14),
-				new LogicItems(1, "Grandma", 1.0, 25, 1.2),
-				new LogicItems(1, "Farm", 0.5, 15, 2.0),
-				new LogicItems(1, "Factory", 4.0, 15, 2.5),
-				new LogicItems(1, "Mine", 5.0, 15, 3.0),
-				//new LogicItems(1, "Shipment", 100.0, 40.000, factor)
+				new LogicItems(1, "Cursor", 0.1, 15),
+				new LogicItems(1, "Grandma", 1.0, 25),
+				new LogicItems(1, "Farm", 0.5, 15),
+				new LogicItems(1, "Factory", 4.0, 15),
+				new LogicItems(1, "Mine", 5.0, 15),
+				new LogicItems(1, "Shipment", 100.0, 40000)
 		};
 		
 		adapterItemList = new ArrayAdapterCookie<LogicItems>(this,
