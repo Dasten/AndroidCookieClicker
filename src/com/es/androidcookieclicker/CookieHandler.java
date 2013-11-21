@@ -15,18 +15,18 @@ import android.widget.TextView;
  */
 public class CookieHandler extends Handler {
 	
-	TextView out;
+	TextView textViewNoc;
 	
 	CookieHandler(TextView out) {
-		this.out = out;
+		this.textViewNoc = out;
 	}
 	
 	@Override
 	public void handleMessage(Message msg) {
-		LogicGame.incrementCookiesPerSecond();
+		Double noc = msg.getData().getDouble(LogicGame.noc_string);
 		
-		BigDecimal bd = new BigDecimal(LogicGame.getCookies());
+		BigDecimal bd = new BigDecimal(noc);
 		
-		out.setText(((Integer)bd.intValue()).toString());
+		textViewNoc.setText(((Integer)bd.intValue()).toString());
 	}
 }
