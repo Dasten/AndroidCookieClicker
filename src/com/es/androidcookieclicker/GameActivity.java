@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.graphics.LightingColorFilter;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -36,19 +37,22 @@ public class GameActivity extends Activity {
 		cookiesCount = (TextView)findViewById(R.id.textNumberCookies);
 		cps = (TextView)findViewById(R.id.cpsValue);
 		
-		handler = new CookieHandler(cookiesCount, cps);
-		cookieThread = new CookieThread(handler);
+		
 		
 		ListView listLogicItems = (ListView)findViewById(R.id.itemsList);
 		
 		//Estos datos lo mejor es que vengan de un json y los cargamos desde aqui
 		LogicItems[] items = {
 				new LogicItems(1, "Cursor", 0.1, 15),
-				new LogicItems(1, "Grandma", 1.0, 25),
-				new LogicItems(1, "Farm", 0.5, 15),
-				new LogicItems(1, "Factory", 4.0, 15),
-				new LogicItems(1, "Mine", 5.0, 15),
-				new LogicItems(1, "Shipment", 100.0, 40000)
+				new LogicItems(1, "Grandma", 0.5, 100),
+				new LogicItems(1, "Farm", 4.0, 500),
+				new LogicItems(1, "Factory", 10.0, 3000),
+				new LogicItems(1, "Mine", 40.0, 10000),
+				new LogicItems(1, "Shipment", 100.0, 40000),
+				new LogicItems(1, "Alchemy Lab", 400.0, 200000),
+				new LogicItems(1, "Portal", 6666.0, 1600000),
+				new LogicItems(1, "Time Machine", 98765, 123456789),
+				new LogicItems(1, "Antimatter Condenser", 999999, 3999999999L)
 		};
 		
 		adapterItemList = new ArrayAdapterCookie<LogicItems>(this,
@@ -73,6 +77,10 @@ public class GameActivity extends Activity {
 	    		adapterItemList.notifyDataSetChanged();
 	        };
 		});
+		
+		
+		handler = new CookieHandler(cookiesCount, cps, adapterItemList);
+		cookieThread = new CookieThread(handler);
 	}
 		
 
@@ -86,6 +94,8 @@ public class GameActivity extends Activity {
 	
 	public void addCookies(View view) {
 		LogicGame.incrementCookies();
+		
+		adapterItemList.notifyDataSetChanged();
 	}
 	
 	public void onStart() {

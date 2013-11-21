@@ -15,12 +15,15 @@ import android.widget.TextView;
  */
 public class CookieHandler extends Handler {
 	
+	ArrayAdapterCookie adapterListItems;
+	
 	TextView textViewNoc;
 	TextView textViewCps;
 	
-	CookieHandler(TextView textViewNoc, TextView textViewCps) {
+	CookieHandler(TextView textViewNoc, TextView textViewCps, ArrayAdapterCookie adapterListItems) {
 		this.textViewNoc = textViewNoc;
 		this.textViewCps = textViewCps;
+		this.adapterListItems = adapterListItems;
 		
 	}
 	
@@ -33,5 +36,7 @@ public class CookieHandler extends Handler {
 		
 		textViewNoc.setText(((Integer)bd.intValue()).toString());
 		textViewCps.setText(cps.toString());
+		
+		adapterListItems.notifyDataSetChanged();
 	}
 }

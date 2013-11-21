@@ -14,17 +14,17 @@ public class LogicItems extends ListActivity {
 	private String name;
 	private double cps;
 
-	private int basePrice;
-	private int price;
+	private long basePrice;
+	private long price;
 	private int level;
 	
-	LogicItems(int id, String name, double cps, int price) {
+	LogicItems(int id, String name, double cps, long basePrice) {
 		this.id = id;
 		this.name = name;
 		this.cps = cps;
-		this.price = price;
-		this.basePrice = price;
-		this.level = 1;
+		this.price = basePrice;
+		this.basePrice = basePrice;
+		this.level = 0;
 	}
 	
 	/**
@@ -54,19 +54,15 @@ public class LogicItems extends ListActivity {
 	/**
 	 * @return the price
 	 */
-	public int getPrice() {
+	public long getPrice() {
 		return price;
 	}
 	/**
 	 * @param price the price to set
 	 */
-	public void setPrice(int price) {
+	public void setPrice(long price) {
 		this.price = price;
 	}
-	/**
-	 * @return the factor
-	 */
-
 	
 	/**
 	 * @return the cps
@@ -83,6 +79,16 @@ public class LogicItems extends ListActivity {
 		this.level = level;
 	}
 
+	
+	public long getBasePrice() {
+		return basePrice;
+	}
+
+	public void setBasePrice(long basePrice) {
+		this.basePrice = basePrice;
+	}
+	
+	
 	/**
 	 * @param cps the cps to set
 	 */
@@ -98,9 +104,11 @@ public class LogicItems extends ListActivity {
 		return name + "| Price: " + price;
 	}
 	
-	public int updatePrice() {
-		price *= (this.basePrice * (Math.pow(1.15, level) - 1)) / 0.15;
+	public long updatePrice() {
 		this.level++;
+		price =  (long) (this.basePrice * Math.pow(1.15, level));
 		return price;
 	}
+
+
 }

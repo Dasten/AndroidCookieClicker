@@ -24,12 +24,8 @@ public class ArrayAdapterCookie<Object> extends ArrayAdapter<Object> {
 	@Override
 	public View getView(int position, View view, ViewGroup vg){
 		View row = super.getView(position, view, vg);
-		
-		LogicItems item = (LogicItems) getItem(position);
-		
-		Double c = LogicGame.getCookies();
-		
-		if(LogicGame.getCookies() >= item.getPrice()){
+				
+		if(isEnabled(position)){
 			row.setEnabled(true);
 	    } else {
 	    	row.setEnabled(false);
@@ -39,7 +35,7 @@ public class ArrayAdapterCookie<Object> extends ArrayAdapter<Object> {
 		
 	}
 
-	/*@Override
+	@Override
 	public boolean isEnabled(int position) {
 	    LogicItems item = (LogicItems) getItem(position);
 		
@@ -48,5 +44,5 @@ public class ArrayAdapterCookie<Object> extends ArrayAdapter<Object> {
 	    }
 		
 	    return false;
-	}*/
+	}
 }
