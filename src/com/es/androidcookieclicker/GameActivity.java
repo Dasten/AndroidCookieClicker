@@ -7,9 +7,12 @@ import java.math.BigDecimal;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.graphics.Color;
 import android.graphics.LightingColorFilter;
+import android.graphics.Typeface;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,6 +32,7 @@ public class GameActivity extends Activity {
 	
 	ArrayAdapterCookie<LogicItems> adapterItemList;
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,7 +62,16 @@ public class GameActivity extends Activity {
 		adapterItemList = new ArrayAdapterCookie<LogicItems>(this,
                 android.R.layout.simple_list_item_1, items);
 		
+		TextView headerListView = new TextView(this);
+		headerListView.setText(R.string.text_header_list_items);
+		headerListView.setTextColor(Color.WHITE);
+		headerListView.setTextSize(20);
+		headerListView.setTextColor(Color.BLACK);
+		headerListView.setTypeface(null, Typeface.BOLD);
+		
+		listLogicItems.addHeaderView(headerListView);
 		listLogicItems.setAdapter(adapterItemList);
+		listLogicItems.setAlpha(0.5f);
 		cps.setText(LogicGame.getCps().toString());
 		
 		
@@ -82,14 +95,6 @@ public class GameActivity extends Activity {
 		handler = new CookieHandler(cookiesCount, cps, adapterItemList);
 		cookieThread = new CookieThread(handler);
 	}
-		
-
-	//@Override
-	/*public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.game, menu);
-		return true;
-	}*/
 	
 	
 	public void addCookies(View view) {

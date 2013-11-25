@@ -101,7 +101,7 @@ public class LogicItems extends ListActivity {
 	 */
 	@Override
 	public String toString() {
-		return name + "| Price: " + price;
+		return name + "\nCoste: " + price;
 	}
 	
 	public long updatePrice() {

@@ -4,9 +4,12 @@
 package com.es.androidcookieclicker;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 /**
  * @author pfranco
@@ -18,17 +21,20 @@ public class ArrayAdapterCookie<Object> extends ArrayAdapter<Object> {
 
 	public ArrayAdapterCookie(Context context, int resource, Object[] objects) {
 		super(context, resource, objects);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
 	public View getView(int position, View view, ViewGroup vg){
 		View row = super.getView(position, view, vg);
+		TextView text = (TextView) super.getView(position, view, vg);
+		text.setTypeface(null, Typeface.BOLD);
 				
 		if(isEnabled(position)){
 			row.setEnabled(true);
+			text.setTextColor(Color.parseColor("#1CBC17"));
 	    } else {
 	    	row.setEnabled(false);
+	    	text.setTextColor(Color.parseColor("#B22626"));
 	    }
 		
 		return row;
