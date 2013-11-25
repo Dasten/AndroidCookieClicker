@@ -71,7 +71,7 @@ public class GameActivity extends Activity {
 		
 		listLogicItems.addHeaderView(headerListView);
 		listLogicItems.setAdapter(adapterItemList);
-		listLogicItems.setAlpha(0.5f);
+		listLogicItems.setAlpha(0.7f);
 		cps.setText(LogicGame.getCps().toString());
 		
 		
