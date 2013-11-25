@@ -5,12 +5,14 @@ package com.es.androidcookieclicker;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -20,11 +22,16 @@ import android.widget.TextView;
 public class ArrayAdapterCookie<Object> extends ArrayAdapter<Object> {
 
 	private static LayoutInflater inflater = null;
+	private Resources rs;
+	private String packageName;
 	
 	public ArrayAdapterCookie(Context context, int resource, Object[] objects) {
 		super(context, resource, objects);
 		
 		inflater = ((Activity)super.getContext()).getLayoutInflater();
+		
+		rs = context.getResources();
+		packageName = context.getPackageName();
 	}
 	
 	@Override
@@ -56,6 +63,12 @@ public class ArrayAdapterCookie<Object> extends ArrayAdapter<Object> {
 		TextView name = (TextView)vi.findViewById(R.id.name_item);
 		TextView price = (TextView)vi.findViewById(R.id.price_item);
 		TextView level = (TextView)vi.findViewById(R.id.level_item);
+		ImageView image = (ImageView)vi.findViewById(R.id.image_item);
+		
+		
+		int resId = rs.getIdentifier("image_list_"+item.getId(), "drawable", packageName);
+		
+		image.setImageResource(resId);
 		
 		name.setText(item.getName());
 		price.setText(item.getPrice()+"");
