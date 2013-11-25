@@ -4,8 +4,10 @@ package com.es.androidcookieclicker;
 public class LogicGame {
 	
 	private static Double cookies = 0.0;
-	private static Double cps = 0.1;
+	private static Double cps = 0.0;
+	private static Double cpc = 1.0;
 	
+
 	//Const
 	//Cookies per second
 	public static String cps_string = "CPS";
@@ -21,6 +23,20 @@ public class LogicGame {
 	public static void setCps(Double cps) {
 		LogicGame.cps = cps;
 	}
+	
+	/**
+	 * @return the cpc
+	 */
+	public static Double getCpc() {
+		return cpc;
+	}
+
+	/**
+	 * @param cpc the cpc to set
+	 */
+	public static void setCpc(Double cpc) {
+		LogicGame.cpc = cpc;
+	}
 
 	static void init() {
 		cookies = 0.0;
@@ -31,15 +47,11 @@ public class LogicGame {
 	}
 	
 	public static void incrementCookies() {
-		cookies++;
+		cookies += cpc;
 	}
 
 	public static void incrementCookiesPerSecond() {
 		cookies += cps/10;
-	}
-	
-	public static void incrementCookies(double numOfCookies) {
-		cookies += numOfCookies;
 	}
 	
 	public static void incrementCookiesPerSecond(double cps) {

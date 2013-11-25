@@ -86,8 +86,6 @@ public class GameActivity extends Activity {
 	        	LogicGame.decrementCookies(item.getPrice());
 	    		LogicGame.incrementCookiesPerSecond(item.getCps());
 	    		item.updatePrice();
-	    		
-	    		adapterItemList.notifyDataSetChanged();
 	        };
 		});
 		
@@ -99,8 +97,6 @@ public class GameActivity extends Activity {
 	
 	public void addCookies(View view) {
 		LogicGame.incrementCookies();
-		
-		adapterItemList.notifyDataSetChanged();
 	}
 	
 	public void onStart() {
