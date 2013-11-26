@@ -13,6 +13,7 @@ import android.app.ListActivity;
 import android.graphics.Color;
 import android.graphics.LightingColorFilter;
 import android.graphics.Typeface;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GameActivity extends Activity {
 	
@@ -29,6 +31,8 @@ public class GameActivity extends Activity {
 	
 	TextView cookiesCount;
 	TextView cps;
+	
+	Toast toast;
 	
 	ArrayAdapterCookie<LogicItems> adapterItemList;
 
@@ -55,8 +59,8 @@ public class GameActivity extends Activity {
 				new LogicItems(1, "Shipment", 100.0, 40000),
 				new LogicItems(1, "Alchemy Lab", 400.0, 200000),
 				new LogicItems(1, "Portal", 6666.0, 1600000),
-				new LogicItems(1, "Time Machine", 98765, 123456789),
-				new LogicItems(1, "Antimatter Condenser", 999999, 3999999999L)
+				new LogicItems(1, "Time Machine", 98765.0, 123456789),
+				new LogicItems(1, "Antimatter Condenser", 999999.0, 3999999999L)
 		};
 		
 		adapterItemList = new ArrayAdapterCookie<LogicItems>(this,
@@ -86,6 +90,13 @@ public class GameActivity extends Activity {
 	        	LogicGame.decrementCookies(item.getPrice());
 	    		LogicGame.incrementCookiesPerSecond(item.getCps());
 	    		item.updatePrice();
+	    		
+	    		//Notificacion
+	    		toast = Toast.makeText(getApplicationContext(),
+	                    item.getName() + " Comprado!", Toast.LENGTH_SHORT);
+	    		
+	    		toast.setGravity(Gravity.TOP|Gravity.CENTER,0,0);
+	    		toast.show();
 	        };
 		});
 		

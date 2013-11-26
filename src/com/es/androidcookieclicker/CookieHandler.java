@@ -42,6 +42,7 @@ public class CookieHandler extends Handler {
 		
 		textViewCps.setText(df.format(cps));
 		
+		//Notificar para actualizar el listView
 		adapterListItems.notifyDataSetChanged();
 	}
 }

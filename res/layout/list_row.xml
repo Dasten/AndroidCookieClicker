@@ -51,7 +51,7 @@
         android:layout_alignTop="@id/name_item"
         android:gravity="right"
         android:layout_marginRight="5dip"
-        android:textSize="12dip"
+        android:textSize="16dip"
         android:textColor="#10bcc9"
         android:textStyle="bold"/>
  
