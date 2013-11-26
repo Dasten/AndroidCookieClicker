@@ -63,6 +63,28 @@ public class GameActivity extends Activity {
 				new LogicItems(1, "Antimatter Condenser", 999999.0, 3999999999L)
 		};		
 		
+		LogicPowerUps[] pUps = {
+				new LogicPowerUps(0, "Reinforced index finger", 0, 0.1, 100, 1),
+				new LogicPowerUps(1, "Ambidextrous", 1, 2, 10000, 10),
+				new LogicPowerUps(2, "Forwards from grandma", 0, 0.3, 1000, 1),
+				new LogicPowerUps(3, "Lubricated dentures", 1, 2, 100000, 10),
+				new LogicPowerUps(4, "Cheap hoes", 0, 1, 5000, 1),
+				new LogicPowerUps(5, "Cookie trees", 1, 2, 500000, 10),
+				new LogicPowerUps(6, "Sturdier conveyor belts", 0, 4, 30000, 1),
+				new LogicPowerUps(7, "Sweatshop", 1, 2, 3000000, 10),
+				new LogicPowerUps(8, "Sugar gas", 0, 10, 100000, 1),
+				new LogicPowerUps(9, "Ultradrill", 1, 2, 10000000, 10),
+				new LogicPowerUps(10, "Vanilla nebulae", 0, 30, 400000, 1),
+				new LogicPowerUps(11, "Frequent flyer", 1, 2, 40000000, 10),
+				new LogicPowerUps(12, "Antimony", 0, 100, 2000000, 1),
+				new LogicPowerUps(13, "True chocolate", 1, 2, 200000000, 10),
+				new LogicPowerUps(14, "Ancient tablet", 0, 1666, 16666660, 1),
+				new LogicPowerUps(15, "Soul bond", 1, 2, 1666666000, 10),
+				new LogicPowerUps(15, "Flux capacitors", 0, 9876, 1234567890, 1)
+				//new LogicPowerUps(17, "Quantum conundrum", 1, 2, 98765456789, 1)
+				
+		};
+		
 		
 		adapterItemList = new ArrayAdapterCookie<LogicItems>(this,
                 android.R.layout.simple_list_item_1, items);

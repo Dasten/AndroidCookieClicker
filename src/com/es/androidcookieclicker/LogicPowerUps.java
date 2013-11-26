@@ -56,6 +56,9 @@ public class LogicPowerUps {
 		this.lvlRequired = lvlRequired;
 	}
 	
-
+	@Override
+	public String toString() {
+		return name + "\nCoste: " + price;
+	}
 	
 }
