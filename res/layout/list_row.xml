@@ -17,7 +17,8 @@
             android:id="@+id/image_item"
             android:layout_width="50dip"
             android:layout_height="50dip"
-            android:src="@drawable/cookie_v2"/>
+            android:src="@drawable/cookie_v2"
+            android:focusable="false"/>
  
     </LinearLayout>
  
@@ -30,7 +31,8 @@
         android:layout_toRightOf="@+id/thumbnail"
         android:textColor="#040404"
         android:typeface="sans"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:focusable="false"/>
  
     <!-- Item price -->
     <TextView
@@ -40,7 +42,8 @@
         android:layout_below="@id/name_item"
         android:textSize="14dip"
         android:layout_marginTop="1dip"
-        android:layout_toRightOf="@+id/thumbnail"/>
+        android:layout_toRightOf="@+id/thumbnail"
+        android:focusable="false"/>
  
     <!-- Item level -->
     <TextView
@@ -53,6 +56,7 @@
         android:layout_marginRight="5dip"
         android:textSize="16dip"
         android:textColor="#10bcc9"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:focusable="false"/>
  
 </RelativeLayout>

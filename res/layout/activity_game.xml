@@ -125,7 +125,9 @@
         android:layout_weight="2"
         android:background="#FFF"
         android:drawSelectorOnTop="false"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:focusable="false"
+        android:setFocusableInTouchMode="false"/>
     
     <ListView
         android:id="@+id/powerUpsList"
