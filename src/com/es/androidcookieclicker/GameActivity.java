@@ -61,7 +61,8 @@ public class GameActivity extends Activity {
 				new LogicItems(1, "Portal", 6666.0, 1600000),
 				new LogicItems(1, "Time Machine", 98765.0, 123456789),
 				new LogicItems(1, "Antimatter Condenser", 999999.0, 3999999999L)
-		};
+		};		
+		
 		
 		adapterItemList = new ArrayAdapterCookie<LogicItems>(this,
                 android.R.layout.simple_list_item_1, items);
