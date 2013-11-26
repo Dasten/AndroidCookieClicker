@@ -4,6 +4,7 @@
 package com.es.androidcookieclicker;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 import android.os.Handler;
 import android.os.Message;
@@ -35,7 +36,11 @@ public class CookieHandler extends Handler {
 		BigDecimal bd = new BigDecimal(noc);
 		
 		textViewNoc.setText(((Integer)bd.intValue()).toString());
-		textViewCps.setText(cps.toString());
+		
+		//Format numero (mostrar solo un decimal)
+		DecimalFormat df= new DecimalFormat("#0.0");
+		
+		textViewCps.setText(df.format(cps));
 		
 		adapterListItems.notifyDataSetChanged();
 	}
