@@ -63,6 +63,7 @@ public final class R {
         public static final int text_cookies=0x7f060004;
         public static final int text_cpc=0x7f060006;
         public static final int text_cps=0x7f060005;
+        public static final int text_header_list_boost=0x7f060008;
         public static final int text_header_list_items=0x7f060007;
         /**  <string name="text_cookie_button">Cookie</string> 
          */

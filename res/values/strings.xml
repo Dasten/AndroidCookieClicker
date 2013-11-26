@@ -10,5 +10,6 @@
     <string name="text_cps">Per Second</string>
     <string name="text_cpc">Per Click</string>
     <string name="text_header_list_items">Store Items</string>
+    <string name="text_header_list_boost">Upgrade List</string>
     
 </resources>
