@@ -95,7 +95,7 @@ public class LogicGame {
 	public static void tick() {
 		incrementCookiesPerSecond();
 		checkIfHasCookiesForBuyItem(adapterItems);
-		checkIfThePowerUpIsPurchasable();
+		checkIfThePowerUpIsPurchasable(adapterPUps, adapterItems);
 	}
 	
 	public static void decrementCookies(double cookies) {
@@ -123,7 +123,7 @@ public class LogicGame {
 		}
 	}
 	
-	private static void checkIfThePowerUpIsPurchasable() {
+	private static void checkIfThePowerUpIsPurchasable(ArrayAdapterPowerUp<LogicPowerUps> adapterPUps, ArrayAdapterCookie<LogicItems> adapterItems){
 		
 		int countPowerUps = adapterPUps.getCount();
 				

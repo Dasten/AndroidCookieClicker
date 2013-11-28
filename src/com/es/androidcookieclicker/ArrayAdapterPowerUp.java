@@ -56,21 +56,3 @@ public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
 	}
 }
 
-
-	/*
-	@Override
-	public boolean isEnabled(int position) {
-	    LogicItems item = (LogicItems) getItem(position);
-	    
-	    
-	    
-	    LogicPowerUps pUp = (LogicPowerUps) getItem(position);
-		
-		if(LogicGame.getCookies() >= item.getPrice()){
-	        return true;
-	    }
-		
-	    return false;
-	}
-	*/
-
