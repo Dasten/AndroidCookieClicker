@@ -54,16 +54,16 @@ public class GameActivity extends Activity {
 		
 		//Estos datos lo mejor es que vengan de un json y los cargamos desde aqui
 		LogicItems[] items = {
-				new LogicItems(0, "Cursor", 0.1, 15),
-				new LogicItems(1, "Grandma", 0.5, 100),
-				new LogicItems(2, "Farm", 4.0, 500),
-				new LogicItems(3, "Factory", 10.0, 3000),
-				new LogicItems(4, "Mine", 40.0, 10000),
-				new LogicItems(5, "Shipment", 100.0, 40000),
-				new LogicItems(6, "Alchemy Lab", 400.0, 200000),
-				new LogicItems(7, "Portal", 6666.0, 1600000),
-				new LogicItems(8, "Time Machine", 98765.0, 123456789),
-				new LogicItems(9, "Antimatter Condenser", 999999.0, 3999999999L)
+				new LogicItems(1, "Cursor", 0.1, 15),
+				new LogicItems(2, "Grandma", 0.5, 100),
+				new LogicItems(3, "Farm", 4.0, 500),
+				new LogicItems(4, "Factory", 10.0, 3000),
+				new LogicItems(5, "Mine", 40.0, 10000),
+				new LogicItems(6, "Shipment", 100.0, 40000),
+				new LogicItems(7, "Alchemy Lab", 400.0, 200000),
+				new LogicItems(8, "Portal", 6666.0, 1600000),
+				new LogicItems(9, "Time Machine", 98765.0, 123456789),
+				new LogicItems(10, "Antimatter Condenser", 999999.0, 3999999999L)
 		};		
 		
 		/*LogicPowerUps[] pUps = {

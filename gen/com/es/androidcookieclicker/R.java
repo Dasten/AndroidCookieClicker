@@ -32,6 +32,15 @@ public final class R {
         public static final int ic_launcherv2=0x7f020005;
         public static final int ic_launcherv3=0x7f020006;
         public static final int image_list_1=0x7f020007;
+        public static final int image_list_10=0x7f020008;
+        public static final int image_list_2=0x7f020009;
+        public static final int image_list_3=0x7f02000a;
+        public static final int image_list_4=0x7f02000b;
+        public static final int image_list_5=0x7f02000c;
+        public static final int image_list_6=0x7f02000d;
+        public static final int image_list_7=0x7f02000e;
+        public static final int image_list_8=0x7f02000f;
+        public static final int image_list_9=0x7f020010;
     }
     public static final class id {
         public static final int action_settings=0x7f09000d;

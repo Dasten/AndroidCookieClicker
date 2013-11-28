@@ -43,9 +43,6 @@ public class CookieHandler extends Handler {
 		
 		textViewCps.setText(df.format(cps));
 		
-		//Notificar para actualizar el listView
-		//LogicGame.getAdapter().notifyDataSetChanged();
-		
 		updateListViewItemsManual();
 	}
 	
