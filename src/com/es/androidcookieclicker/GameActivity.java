@@ -151,16 +151,39 @@ public class GameActivity extends Activity {
 			public void onItemClick(AdapterView<?> adapter, View view, int position, 
 					long id){
 				
-				LogicPowerUps powerUps = (LogicPowerUps) adapter.getItemAtPosition(position);
-				//TO-DO
+				LogicPowerUps powerUp = (LogicPowerUps) adapter.getItemAtPosition(position);
+
+				/* Segun el id del item a upgradear hacemos una cosa u otra*/
+				if(powerUp.getItemIdToBoost() != -1){
+					LogicItems itemToBoost = (LogicItems) adapter.getItemAtPosition(powerUp.getItemIdToBoost());
+					
+					if(powerUp.getBoostType() == 1){
+						/*Si el tipo de boost es 1 lo que hacemos es doblar la productividad del item*/
+						itemToBoost.setCps(itemToBoost.getCps() * powerUp.getBoost());				
+					}else{
+						/*Si el tipo de boost es 0 lo que hacemos es aumentar los Cps del item*/
+						itemToBoost.setCps(itemToBoost.getCps() + powerUp.getBoost());
+					}
+				}else{
+					/* Si el id del item que tenemos que upgradear es -1, el upgrade es sobre las cookies globales(CPS), */
+					LogicGame.incrementCookiesPerSecond(((LogicGame.getCps()*(powerUp.getBoost()/100))));
+				}
 				
+				LogicGame.decrementCookies(powerUp.getPrice());
+				//BORRAMOS EL POWERUP DE LA LISTA DE MEJORAS
+				
+	    		//Notificacion
+	    		toast = Toast.makeText(getApplicationContext(),
+	                    powerUp.getName() + " Comprado!", Toast.LENGTH_SHORT);
+	    		
+	    		toast.setGravity(Gravity.TOP|Gravity.CENTER,0,0);
+	    		toast.show();
 			};
 		});
 		
 		handler = new CookieHandler(cookiesCount, cps, adapterItemList);
 		cookieThread = new CookieThread(handler);
 	}
-	
 	
 	public void addCookies(View view) {
 		LogicGame.incrementCookies();
