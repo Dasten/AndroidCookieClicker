@@ -22,11 +22,11 @@ public class CookieHandler extends Handler {
 	TextView textViewCps;
 	ListView listItems;
 	
+	
 	CookieHandler(TextView textViewNoc, TextView textViewCps, ListView listItems) {
 		this.textViewNoc = textViewNoc;
 		this.textViewCps = textViewCps;
 		this.listItems = listItems;
-		
 	}
 	
 	@Override
@@ -36,7 +36,7 @@ public class CookieHandler extends Handler {
 		
 		BigDecimal bd = new BigDecimal(noc);
 		
-		textViewNoc.setText(((Integer)bd.intValue()).toString());
+		textViewNoc.setText(LogicGame.formatNumber(((Integer)bd.intValue())));
 		
 		//Format numero (mostrar solo un decimal)
 		DecimalFormat df= new DecimalFormat("#0.0");

@@ -3,6 +3,8 @@
  */
 package com.es.androidcookieclicker;
 
+import java.text.DecimalFormat;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -71,7 +73,7 @@ public class ArrayAdapterCookie<Object> extends ArrayAdapter<Object> {
 		image.setImageResource(resId);
 		
 		name.setText(item.getName());
-		price.setText(item.getPrice()+"");
+		price.setText(LogicGame.formatNumber(item.getPrice())+"");
 		level.setText(item.getLevel()+"");
 		
 		if(isEnabled(position)){

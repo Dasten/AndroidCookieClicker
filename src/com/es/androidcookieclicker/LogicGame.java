@@ -1,5 +1,7 @@
 package com.es.androidcookieclicker;
 
+import java.text.DecimalFormat;
+
 
 public class LogicGame {
 	
@@ -7,6 +9,7 @@ public class LogicGame {
 	private static Double cps = 0.0;
 	private static Double cpc = 1.0;
 	private static ArrayAdapterCookie<LogicItems> adapter;
+	private static DecimalFormat formatter = new DecimalFormat("#,###,###,###,###,###");
 	
 
 	//Const
@@ -73,6 +76,10 @@ public class LogicGame {
 	
 	public static void incrementCookiesPerSecond(double cps) {
 		LogicGame.cps += cps;
+	}
+	
+	public static String formatNumber(Object number) {
+		return formatter.format(number);
 	}
 	
 	public static void tick() {
