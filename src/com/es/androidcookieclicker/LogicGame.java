@@ -6,6 +6,7 @@ public class LogicGame {
 	private static Double cookies = 0.0;
 	private static Double cps = 0.0;
 	private static Double cpc = 1.0;
+	private static ArrayAdapterCookie<LogicItems> adapter;
 	
 
 	//Const
@@ -37,6 +38,22 @@ public class LogicGame {
 	public static void setCpc(Double cpc) {
 		LogicGame.cpc = cpc;
 	}
+	
+	
+
+	/**
+	 * @return the adapter
+	 */
+	public static ArrayAdapterCookie<LogicItems> getAdapter() {
+		return adapter;
+	}
+
+	/**
+	 * @param adapter the adapter to set
+	 */
+	public static void setAdapter(ArrayAdapterCookie<LogicItems> adapter) {
+		LogicGame.adapter = adapter;
+	}
 
 	static void init() {
 		cookies = 0.0;
@@ -60,6 +77,7 @@ public class LogicGame {
 	
 	public static void tick() {
 		incrementCookiesPerSecond();
+		checkIfHasCookiesForBuyItem(adapter);
 	}
 	
 	public static void decrementCookies(double cookies) {
@@ -71,6 +89,20 @@ public class LogicGame {
 			LogicGame.cookies = cookiesAux;
 		}
 		
+	}
+	
+	private static void checkIfHasCookiesForBuyItem(ArrayAdapterCookie<LogicItems> adapter) {
+		int countItems = adapter.getCount();
+		
+		for(int i = 0; i < countItems; i++) {
+			LogicItems item = adapter.getItem(i);
+			
+			if(LogicGame.cookies >= item.getPrice()) {
+				item.setPurchasable(true);
+			} else {
+				item.setPurchasable(false);
+			}
+		}
 	}
 	
 }

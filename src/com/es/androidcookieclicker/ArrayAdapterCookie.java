@@ -90,10 +90,6 @@ public class ArrayAdapterCookie<Object> extends ArrayAdapter<Object> {
 	public boolean isEnabled(int position) {
 	    LogicItems item = (LogicItems) getItem(position);
 		
-		if(LogicGame.getCookies() >= item.getPrice()){
-	        return true;
-	    }
-		
-	    return false;
+		return (item.isPurchasable());
 	}
 }

@@ -11,6 +11,7 @@ public class LogicItems extends ListActivity {
 	private long basePrice;
 	private long price;
 	private int level;
+	private boolean purchasable;
 	
 	LogicItems(int id, String name, double cps, long basePrice) {
 		this.id = id;
@@ -19,6 +20,7 @@ public class LogicItems extends ListActivity {
 		this.price = basePrice;
 		this.basePrice = basePrice;
 		this.level = 0;
+		this.purchasable = false;
 	}
 	
 	/**
@@ -90,6 +92,22 @@ public class LogicItems extends ListActivity {
 		this.cps = cps;
 	}
 	
+	
+	
+	/**
+	 * @return the purchasable
+	 */
+	public boolean isPurchasable() {
+		return purchasable;
+	}
+
+	/**
+	 * @param purchasable the purchasable to set
+	 */
+	public void setPurchasable(boolean purchasable) {
+		this.purchasable = purchasable;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

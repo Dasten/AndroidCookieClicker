@@ -50,11 +50,11 @@ public class GameActivity extends Activity {
 		
 		
 		ListView listLogicItems = (ListView)findViewById(R.id.itemsList);
-		ListView listBoost = (ListView)findViewById(R.id.powerUpsList);
+		//ListView listBoost = (ListView)findViewById(R.id.powerUpsList);
 		
 		//Estos datos lo mejor es que vengan de un json y los cargamos desde aqui
 		LogicItems[] items = {
-				new LogicItems(0, "Cursor", 0.1, 15),
+				new LogicItems(0, "Cursor", 999999.0, 15),
 				new LogicItems(1, "Grandma", 0.5, 100),
 				new LogicItems(2, "Farm", 4.0, 500),
 				new LogicItems(3, "Factory", 10.0, 3000),
@@ -66,7 +66,7 @@ public class GameActivity extends Activity {
 				new LogicItems(9, "Antimatter Condenser", 999999.0, 3999999999L)
 		};		
 		
-		LogicPowerUps[] pUps = {
+		/*LogicPowerUps[] pUps = {
 				new LogicPowerUps(100, "Reinforced index finger", 0, 0.1, 100, 1, 0),
 				new LogicPowerUps(101, "Ambidextrous", 1, 2, 10000, 10, 0),
 				new LogicPowerUps(102, "Forwards from grandma", 0, 0.3, 1000, 1, 1),
@@ -88,15 +88,15 @@ public class GameActivity extends Activity {
 				new LogicPowerUps(118, "Sugar bosons", 0, 99999, 39999999990L, 1, 9),
 				new LogicPowerUps(119, "Large macaron collider", 1, 2, 3999999999000L, 10, 9),
 				new LogicPowerUps(120, "Sugar cookies", 1, 5, 99999999, 9999999, -1),
-				new LogicPowerUps(121, "Double-chip cookies", 1, 10, 99999999999L, 999999999 , -1)
-		};
+				new LogicPowerUps(121, "Double-chip cookies", 1, 10, 99999999999L, 999999999 , -1)*/
+		//};
 		
 				
 		adapterItemList = new ArrayAdapterCookie<LogicItems>(this,
                 android.R.layout.simple_list_item_1, items);
 		
-		adapterBoostList = new ArrayAdapterCookie<LogicPowerUps>(this,
-                android.R.layout.simple_list_item_1, pUps);
+		/*adapterBoostList = new ArrayAdapterCookie<LogicPowerUps>(this,
+                android.R.layout.simple_list_item_1, pUps);*/
 		
 		
 				
@@ -107,20 +107,20 @@ public class GameActivity extends Activity {
 		headerListView.setTextColor(Color.BLACK);
 		headerListView.setTypeface(null, Typeface.BOLD);
 		
-		TextView headerBoostList = new TextView(this);
+		/*TextView headerBoostList = new TextView(this);
 		headerBoostList.setText(R.string.text_header_list_boost);
 		headerBoostList.setTextColor(Color.WHITE);
 		headerBoostList.setTextSize(20);
 		headerBoostList.setTextColor(Color.BLACK);
-		headerBoostList.setTypeface(null, Typeface.BOLD);
+		headerBoostList.setTypeface(null, Typeface.BOLD);*/
 		
 		listLogicItems.addHeaderView(headerListView);
 		listLogicItems.setAdapter(adapterItemList);
 		listLogicItems.setAlpha(0.7f);
 		
-		listBoost.addHeaderView(headerBoostList);
+		/*listBoost.addHeaderView(headerBoostList);
 		listBoost.setAdapter(adapterBoostList);
-		listBoost.setAlpha(0.7f);
+		listBoost.setAlpha(0.7f);*/
 			
 		cps.setText(LogicGame.getCps().toString());
 		
@@ -146,7 +146,7 @@ public class GameActivity extends Activity {
 		});
 		
 		
-		listBoost.setOnItemClickListener(new OnItemClickListener() {
+		/*listBoost.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> adapter, View view, int position, 
 					long id){
@@ -154,19 +154,19 @@ public class GameActivity extends Activity {
 				LogicPowerUps powerUp = (LogicPowerUps) adapter.getItemAtPosition(position);
 
 				/* Segun el id del item a upgradear hacemos una cosa u otra*/
-				if(powerUp.getItemIdToBoost() != -1){
+				/*if(powerUp.getItemIdToBoost() != -1){
 					LogicItems itemToBoost = (LogicItems) adapter.getItemAtPosition(powerUp.getItemIdToBoost());
 					
 					if(powerUp.getBoostType() == 1){
 						/*Si el tipo de boost es 1 lo que hacemos es doblar la productividad del item*/
-						itemToBoost.setCps(itemToBoost.getCps() * powerUp.getBoost());				
+						/*itemToBoost.setCps(itemToBoost.getCps() * powerUp.getBoost());				
 					}else{
 						/*Si el tipo de boost es 0 lo que hacemos es aumentar los Cps del item*/
-						itemToBoost.setCps(itemToBoost.getCps() + powerUp.getBoost());
+						/*itemToBoost.setCps(itemToBoost.getCps() + powerUp.getBoost());
 					}
 				}else{
 					/* Si el id del item que tenemos que upgradear es -1, el upgrade es sobre las cookies globales(CPS), */
-					LogicGame.incrementCookiesPerSecond(((LogicGame.getCps()*(powerUp.getBoost()/100))));
+					/*LogicGame.incrementCookiesPerSecond(((LogicGame.getCps()*(powerUp.getBoost()/100))));
 				}
 				
 				LogicGame.decrementCookies(powerUp.getPrice());
@@ -179,9 +179,11 @@ public class GameActivity extends Activity {
 	    		toast.setGravity(Gravity.TOP|Gravity.CENTER,0,0);
 	    		toast.show();
 			};
-		});
+		/*});*/
 		
-		handler = new CookieHandler(cookiesCount, cps, adapterItemList);
+		LogicGame.setAdapter(adapterItemList);
+		
+		handler = new CookieHandler(cookiesCount, cps, listLogicItems);
 		cookieThread = new CookieThread(handler);
 	}
 	
