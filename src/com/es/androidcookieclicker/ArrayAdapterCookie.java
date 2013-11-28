@@ -59,7 +59,7 @@ public class ArrayAdapterCookie<Object> extends ArrayAdapter<Object> {
 		
 		if(vi == null) {
 			
-			vi = inflater.inflate(R.layout.list_row, null);
+			vi = inflater.inflate(R.layout.list_row_items, null);
 		}
 		
 		TextView name = (TextView)vi.findViewById(R.id.name_item);

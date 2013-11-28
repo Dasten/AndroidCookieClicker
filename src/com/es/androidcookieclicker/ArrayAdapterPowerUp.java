@@ -36,12 +36,12 @@ public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
 		
 		if(vi == null) {
 			
-			vi = inflater.inflate(R.layout.list_row, null);
+			vi = inflater.inflate(R.layout.list_row_items, null);
 		}
 		
-		TextView name = (TextView)vi.findViewById(R.id.name_item);
-		TextView price = (TextView)vi.findViewById(R.id.price_item);
-		ImageView image = (ImageView)vi.findViewById(R.id.image_item);
+		TextView name = (TextView)vi.findViewById(R.id.name_powerup);
+		TextView price = (TextView)vi.findViewById(R.id.price_powerup);
+		ImageView image = (ImageView)vi.findViewById(R.id.image_powerup);
 		
 		
 		int resId = rs.getIdentifier("image_list_"+powerUp.getId(), "drawable", packageName);
@@ -50,22 +50,20 @@ public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
 		
 		name.setText(powerUp.getName());
 		price.setText(powerUp.getPrice()+"");
-		
-		if(isEnabled(position)){
-			vi.setEnabled(true);
-			price.setTextColor(Color.parseColor("#1CBC17"));
-	    } else {
-	    	vi.setEnabled(false);
-	    	price.setTextColor(Color.parseColor("#B22626"));
-	    }
-		
+				
 		return vi;
 		
 	}
+}
 
+
+	/*
 	@Override
 	public boolean isEnabled(int position) {
 	    LogicItems item = (LogicItems) getItem(position);
+	    
+	    
+	    
 	    LogicPowerUps pUp = (LogicPowerUps) getItem(position);
 		
 		if(LogicGame.getCookies() >= item.getPrice()){
@@ -74,4 +72,5 @@ public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
 		
 	    return false;
 	}
-}
+	*/
+

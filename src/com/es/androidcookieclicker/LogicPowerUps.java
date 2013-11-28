@@ -6,6 +6,7 @@ public class LogicPowerUps extends Item
 	private double boost;
 	private int lvlRequired;
 	private int itemIdToBoost;
+	private boolean purchasable;
 	
 	
 	public LogicPowerUps(int id, String name, int boostType, double boost,
@@ -18,6 +19,7 @@ public class LogicPowerUps extends Item
 		this.price = price;
 		this.lvlRequired = lvlRequired;
 		this.itemIdToBoost = itemIdToBoost;
+		this.purchasable = false;
 	}
 	public void setName(String name) {
 		this.name = name;
@@ -54,4 +56,11 @@ public class LogicPowerUps extends Item
 	public void setItemIdToBoost(int itemIdToBoost) {
 		this.itemIdToBoost = itemIdToBoost;
 	}
+	public boolean isPurchasable() {
+		return purchasable;
+	}
+	public void setPurchasable(boolean purchasable) {
+		this.purchasable = purchasable;
+	}
+	
 }

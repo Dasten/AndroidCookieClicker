@@ -8,7 +8,9 @@ public class LogicGame {
 	private static Double cookies = 0.0;
 	private static Double cps = 0.0;
 	private static Double cpc = 1.0;
-	private static ArrayAdapterCookie<LogicItems> adapter;
+	
+	private static ArrayAdapterCookie<LogicItems> adapterItems;
+	private static ArrayAdapterPowerUp<LogicPowerUps> adapterPUps;
 	private static DecimalFormat formatter = new DecimalFormat("#,###,###,###,###,###");
 	
 
@@ -48,14 +50,22 @@ public class LogicGame {
 	 * @return the adapter
 	 */
 	public static ArrayAdapterCookie<LogicItems> getAdapter() {
-		return adapter;
+		return adapterItems;
 	}
 
 	/**
 	 * @param adapter the adapter to set
 	 */
 	public static void setAdapter(ArrayAdapterCookie<LogicItems> adapter) {
-		LogicGame.adapter = adapter;
+		LogicGame.adapterItems = adapter;
+	}
+	
+	public static ArrayAdapterPowerUp<LogicPowerUps> getAdapterPUps() {
+		return adapterPUps;
+	}
+
+	public static void setAdapterPUps(ArrayAdapterPowerUp<LogicPowerUps> adapterPUps) {
+		LogicGame.adapterPUps = adapterPUps;
 	}
 
 	static void init() {
@@ -84,7 +94,7 @@ public class LogicGame {
 	
 	public static void tick() {
 		incrementCookiesPerSecond();
-		checkIfHasCookiesForBuyItem(adapter);
+		checkIfHasCookiesForBuyItem(adapterItems);
 	}
 	
 	public static void decrementCookies(double cookies) {
@@ -112,4 +122,26 @@ public class LogicGame {
 		}
 	}
 	
+	private static void checkIfThePowerUpIsPurchasable(ArrayAdapterPowerUp<LogicPowerUps> adapterPowerUs,
+			ArrayAdapterCookie<LogicItems> adapterItems) {
+		
+		int countPowerUps = adapterPowerUs.getCount();
+				
+		for(int i = 0; i < countPowerUps; i++) {
+			LogicPowerUps powerUp = adapterPowerUs.getItem(i);
+			
+			if(LogicGame.cookies >= powerUp.getPrice()) {
+				LogicItems itemToUpgrade = adapterItems.getItem(powerUp.getItemIdToBoost()-1);
+				
+				if(itemToUpgrade.getLevel() >= powerUp.getLvlRequired()){
+					powerUp.setPurchasable(true);
+				}else{
+					powerUp.setPurchasable(false);
+				}				
+				
+			} else {
+				powerUp.setPurchasable(false);
+			}
+		}
+	}
 }

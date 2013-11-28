@@ -43,15 +43,18 @@ public final class R {
         public static final int image_list_9=0x7f020010;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000d;
+        public static final int action_settings=0x7f090010;
         public static final int cookieButton=0x7f090000;
         public static final int cpsValue=0x7f090004;
         public static final int image_item=0x7f090009;
+        public static final int image_powerup=0x7f09000d;
         public static final int itemsList=0x7f090006;
         public static final int level_item=0x7f09000c;
         public static final int name_item=0x7f09000a;
+        public static final int name_powerup=0x7f09000e;
         public static final int powerUpsList=0x7f090007;
         public static final int price_item=0x7f09000b;
+        public static final int price_powerup=0x7f09000f;
         public static final int textCookies=0x7f090002;
         public static final int textCpc=0x7f090005;
         public static final int textCps=0x7f090003;
@@ -60,7 +63,8 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_game=0x7f030000;
-        public static final int list_row=0x7f030001;
+        public static final int list_row_items=0x7f030001;
+        public static final int list_row_powerups=0x7f030002;
     }
     public static final class menu {
         public static final int game=0x7f080000;
