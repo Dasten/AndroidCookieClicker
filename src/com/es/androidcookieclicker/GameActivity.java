@@ -52,7 +52,6 @@ public class GameActivity extends Activity {
 		ListView listLogicItems = (ListView)findViewById(R.id.itemsList);
 		ListView listBoost = (ListView)findViewById(R.id.powerUpsList);
 		
-		//Estos datos lo mejor es que vengan de un json y los cargamos desde aqui
 		LogicItems[] items = {
 				new LogicItems(1, "Cursor", 0.1, 15),
 				new LogicItems(2, "Grandma", 0.5, 100),
@@ -106,7 +105,11 @@ public class GameActivity extends Activity {
 		headerListView.setTextColor(Color.BLACK);
 		headerListView.setTypeface(null, Typeface.BOLD);
 		
+		listLogicItems.addHeaderView(headerListView);
+		listLogicItems.setAdapter(adapterItemList);
+		listLogicItems.setAlpha(0.7f);
 		
+	
 		TextView headerBoostList = new TextView(this);
 		headerBoostList.setText(R.string.text_header_list_boost);
 		headerBoostList.setTextColor(Color.WHITE);
@@ -114,12 +117,6 @@ public class GameActivity extends Activity {
 		headerBoostList.setTextColor(Color.BLACK);
 		headerBoostList.setTypeface(null, Typeface.BOLD);
 		
-		
-		listLogicItems.addHeaderView(headerListView);
-		listLogicItems.setAdapter(adapterItemList);
-		listLogicItems.setAlpha(0.7f);
-		
-	
 		listBoost.addHeaderView(headerBoostList);
 		listBoost.setAdapter(adapterBoostList);
 		listBoost.setAlpha(0.7f);
@@ -157,8 +154,8 @@ public class GameActivity extends Activity {
 				LogicPowerUps powerUp = (LogicPowerUps) adapter.getItemAtPosition(position);
 
 				/* Segun el id del item a upgradear hacemos una cosa u otra*/
-				if(powerUp.getItemIdToBoost() != -1){
-					LogicItems itemToBoost = (LogicItems) adapter.getItemAtPosition(powerUp.getItemIdToBoost());
+				if((powerUp.getItemIdToBoost()-1) != -1){
+					LogicItems itemToBoost = (LogicItems) adapter.getItemAtPosition(powerUp.getItemIdToBoost()-1);
 					
 					if(powerUp.getBoostType() == 1){
 						/*Si el tipo de boost es 1 lo que hacemos es doblar la productividad del item*/
