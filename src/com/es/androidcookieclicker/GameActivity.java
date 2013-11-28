@@ -119,11 +119,11 @@ public class GameActivity extends Activity {
 		listLogicItems.setAdapter(adapterItemList);
 		listLogicItems.setAlpha(0.7f);
 		
-		/*
+	
 		listBoost.addHeaderView(headerBoostList);
 		listBoost.setAdapter(adapterBoostList);
 		listBoost.setAlpha(0.7f);
-		*/
+		
 			
 		cps.setText(LogicGame.getCps().toString());
 		
@@ -185,6 +185,7 @@ public class GameActivity extends Activity {
 		});
 		
 		LogicGame.setAdapter(adapterItemList);
+		LogicGame.setAdapterPUps(adapterBoostList);
 		
 		handler = new CookieHandler(cookiesCount, cps, listLogicItems);
 		cookieThread = new CookieThread(handler);

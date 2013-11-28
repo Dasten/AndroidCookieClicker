@@ -28,7 +28,7 @@ public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
 		packageName = context.getPackageName();
 	}
 	
-	@Override
+	/*@Override
 	public View getView(int position, View view, ViewGroup vg){
 
 		View vi = view;
@@ -36,7 +36,7 @@ public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
 		
 		if(vi == null) {
 			
-			vi = inflater.inflate(R.layout.list_row_items, null);
+			vi = inflater.inflate(R.layout.list_row_powerups, null);
 		}
 		
 		TextView name = (TextView)vi.findViewById(R.id.name_powerup);
@@ -53,7 +53,7 @@ public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
 				
 		return vi;
 		
-	}
+	}*/
 }
 
 

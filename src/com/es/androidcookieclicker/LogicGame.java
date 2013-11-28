@@ -95,6 +95,7 @@ public class LogicGame {
 	public static void tick() {
 		incrementCookiesPerSecond();
 		checkIfHasCookiesForBuyItem(adapterItems);
+		checkIfThePowerUpIsPurchasable();
 	}
 	
 	public static void decrementCookies(double cookies) {
@@ -122,13 +123,12 @@ public class LogicGame {
 		}
 	}
 	
-	private static void checkIfThePowerUpIsPurchasable(ArrayAdapterPowerUp<LogicPowerUps> adapterPowerUs,
-			ArrayAdapterCookie<LogicItems> adapterItems) {
+	private static void checkIfThePowerUpIsPurchasable() {
 		
-		int countPowerUps = adapterPowerUs.getCount();
+		int countPowerUps = adapterPUps.getCount();
 				
 		for(int i = 0; i < countPowerUps; i++) {
-			LogicPowerUps powerUp = adapterPowerUs.getItem(i);
+			LogicPowerUps powerUp = adapterPUps.getItem(i);
 			
 			if(LogicGame.cookies >= powerUp.getPrice()) {
 				LogicItems itemToUpgrade = adapterItems.getItem(powerUp.getItemIdToBoost()-1);
