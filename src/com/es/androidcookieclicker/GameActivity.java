@@ -54,7 +54,7 @@ public class GameActivity extends Activity {
 		
 		//Estos datos lo mejor es que vengan de un json y los cargamos desde aqui
 		LogicItems[] items = {
-				new LogicItems(0, "Cursor", 999999.0, 15),
+				new LogicItems(0, "Cursor", 0.1, 15),
 				new LogicItems(1, "Grandma", 0.5, 100),
 				new LogicItems(2, "Farm", 4.0, 500),
 				new LogicItems(3, "Factory", 10.0, 3000),

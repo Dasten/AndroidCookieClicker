@@ -1,11 +1,9 @@
 package com.es.androidcookieclicker;
 
-public class LogicPowerUps {
-	private int id;
-	private String name;
+public class LogicPowerUps extends Item
+{
 	private int boostType;
 	private double boost;
-	private long price;
 	private int lvlRequired;
 	private int itemIdToBoost;
 	
@@ -21,51 +19,39 @@ public class LogicPowerUps {
 		this.lvlRequired = lvlRequired;
 		this.itemIdToBoost = itemIdToBoost;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public int getBoostType() {
 		return boostType;
 	}
+	
 	public void setBoostType(int boostType) {
 		this.boostType = boostType;
 	}
+	
 	public double getBoost() {
 		return boost;
 	}
+	
 	public void setBoost(double boost) {
 		this.boost = boost;
 	}
-	public long getPrice() {
-		return price;
-	}
-	public void setPrice(long price) {
-		this.price = price;
-	}
+	
 	public int getLvlRequired() {
 		return lvlRequired;
 	}
+	
 	public void setLvlRequired(int lvlRequired) {
 		this.lvlRequired = lvlRequired;
 	}
+	
 	public int getItemIdToBoost() {
 		return itemIdToBoost;
 	}
+	
 	public void setItemIdToBoost(int itemIdToBoost) {
 		this.itemIdToBoost = itemIdToBoost;
 	}
-	@Override
-	public String toString() {
-		return name + "\nCoste: " + price;
-	}
-	
 }

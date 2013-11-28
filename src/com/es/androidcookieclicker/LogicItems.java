@@ -1,15 +1,11 @@
 package com.es.androidcookieclicker;
 
-import android.app.ListActivity;
 
-public class LogicItems extends ListActivity {
-
-	private int id;
-	private String name;
+public class LogicItems extends Item
+{
 	private double cps;
 
 	private long basePrice;
-	private long price;
 	private int level;
 	private boolean purchasable;
 	
@@ -21,43 +17,6 @@ public class LogicItems extends ListActivity {
 		this.basePrice = basePrice;
 		this.level = 0;
 		this.purchasable = false;
-	}
-	
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	/**
-	 * @return the price
-	 */
-	public long getPrice() {
-		return price;
-	}
-	/**
-	 * @param price the price to set
-	 */
-	public void setPrice(long price) {
-		this.price = price;
 	}
 	
 	/**
@@ -84,15 +43,12 @@ public class LogicItems extends ListActivity {
 		this.basePrice = basePrice;
 	}
 	
-	
 	/**
 	 * @param cps the cps to set
 	 */
 	public void setCps(double cps) {
 		this.cps = cps;
 	}
-	
-	
 	
 	/**
 	 * @return the purchasable
@@ -108,13 +64,6 @@ public class LogicItems extends ListActivity {
 		this.purchasable = purchasable;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return name + "\nCoste: " + price;
-	}
 	
 	public long updatePrice() {
 		this.level++;
