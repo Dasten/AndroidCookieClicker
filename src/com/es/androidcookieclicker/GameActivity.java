@@ -66,9 +66,9 @@ public class GameActivity extends Activity {
 				new LogicItems(10, "Antimatter Condenser", 999999.0, 3999999999L)
 		};		
 		
-		
+
 		LogicPowerUps[] pUps = {
-				new LogicPowerUps(100, "Reinforced index finger", 0, 0.1, 10, 1, 1),
+				new LogicPowerUps(100, "Reinforced index finger", 0, 0.1, 100, 1, 1),
 				new LogicPowerUps(101, "Ambidextrous", 1, 2, 10000, 10, 1),
 				new LogicPowerUps(102, "Forwards from grandma", 0, 0.3, 1000, 1, 2),
 				new LogicPowerUps(103, "Lubricated dentures", 1, 2, 100000, 10, 2),
@@ -91,6 +91,7 @@ public class GameActivity extends Activity {
 				new LogicPowerUps(120, "Sugar cookies", 1, 5, 99999999, 9999999, -1),
 				new LogicPowerUps(121, "Double-chip cookies", 1, 10, 99999999999L, 999999999 , -1)
 		};
+		
 		
 		
 		/*
@@ -117,7 +118,7 @@ public class GameActivity extends Activity {
 		pUps.add(new LogicPowerUps(119, "Large macaron collider", 1, 2, 3999999999000L, 10, 10));
 		pUps.add(new LogicPowerUps(120, "Sugar cookies", 1, 5, 99999999, 9999999, -1));
 		pUps.add(new LogicPowerUps(121, "Double-chip cookies", 1, 10, 99999999999L, 999999999 , -1));
-		 */
+		*/
 		
 		
 		

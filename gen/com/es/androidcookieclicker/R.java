@@ -41,6 +41,28 @@ public final class R {
         public static final int image_list_7=0x7f02000e;
         public static final int image_list_8=0x7f02000f;
         public static final int image_list_9=0x7f020010;
+        public static final int image_list_up100=0x7f020011;
+        public static final int image_list_up101=0x7f020012;
+        public static final int image_list_up102=0x7f020013;
+        public static final int image_list_up103=0x7f020014;
+        public static final int image_list_up104=0x7f020015;
+        public static final int image_list_up105=0x7f020016;
+        public static final int image_list_up106=0x7f020017;
+        public static final int image_list_up107=0x7f020018;
+        public static final int image_list_up108=0x7f020019;
+        public static final int image_list_up109=0x7f02001a;
+        public static final int image_list_up110=0x7f02001b;
+        public static final int image_list_up111=0x7f02001c;
+        public static final int image_list_up112=0x7f02001d;
+        public static final int image_list_up113=0x7f02001e;
+        public static final int image_list_up114=0x7f02001f;
+        public static final int image_list_up115=0x7f020020;
+        public static final int image_list_up116=0x7f020021;
+        public static final int image_list_up117=0x7f020022;
+        public static final int image_list_up118=0x7f020023;
+        public static final int image_list_up119=0x7f020024;
+        public static final int image_list_up120=0x7f020025;
+        public static final int image_list_up121=0x7f020026;
     }
     public static final class id {
         public static final int action_settings=0x7f090011;

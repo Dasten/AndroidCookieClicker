@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,14 +44,13 @@ public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
 			
 			
 			TextView name = (TextView)vi.findViewById(R.id.name_powerup);
-			TextView price = (TextView)vi.findViewById(R.id.price_powerup);
+			TextView price = (TextView)vi.findViewById(R.id.price_powerup);	
+			ImageView image = (ImageView)vi.findViewById(R.id.image_powerup);
 			
-			//ImageView image = (ImageView)vi.findViewById(R.id.image_powerup);
 			
-			
-			//int resId = rs.getIdentifier("image_list_"+powerUp.getId(), "drawable", packageName);
-			
-			//image.setImageResource(resId);
+			int resId = rs.getIdentifier("image_list_up"+powerUp.getId(), "drawable", packageName);
+						
+			image.setImageResource(resId);
 			
 			name.setText(powerUp.getName());
 			price.setText(LogicGame.formatNumber(powerUp.getPrice())+"");
