@@ -95,6 +95,7 @@ public class LogicGame {
 	public static void tick() {
 		incrementCookiesPerSecond();
 		checkIfHasCookiesForBuyItem(adapterItems);
+		checkIfHasCookiesForBuyPowerUps(adapterPUps);
 		checkIfThePowerUpIsPurchasable(adapterPUps, adapterItems);
 	}
 	
@@ -122,6 +123,21 @@ public class LogicGame {
 			}
 		}
 	}
+	
+	private static void checkIfHasCookiesForBuyPowerUps(ArrayAdapterPowerUp<LogicPowerUps> adapter) {
+		int countItems = adapter.getCount();
+		
+		for(int i = 0; i < countItems; i++) {
+			LogicPowerUps powerUp = adapter.getItem(i);
+			
+			if(LogicGame.cookies >= powerUp.getPrice()) {
+				powerUp.setPurchasable(true);
+			} else {
+				powerUp.setPurchasable(false);
+			}
+		}
+	}
+	
 	
 	private static void checkIfThePowerUpIsPurchasable(ArrayAdapterPowerUp<LogicPowerUps> adapterPUps, ArrayAdapterCookie<LogicItems> adapterItems){
 		

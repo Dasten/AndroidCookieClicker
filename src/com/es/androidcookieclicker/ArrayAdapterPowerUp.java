@@ -41,6 +41,7 @@ public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
 		
 		TextView name = (TextView)vi.findViewById(R.id.name_powerup);
 		TextView price = (TextView)vi.findViewById(R.id.price_powerup);
+		
 		//ImageView image = (ImageView)vi.findViewById(R.id.image_powerup);
 		
 		
@@ -49,10 +50,24 @@ public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
 		//image.setImageResource(resId);
 		
 		name.setText(powerUp.getName());
-		price.setText(powerUp.getPrice()+"");
+		price.setText(LogicGame.formatNumber(powerUp.getPrice())+"");
 				
-		return vi;
+		if(isEnabled(position)){
+			vi.setEnabled(true);
+			price.setTextColor(Color.parseColor("#1CBC17"));
+	    } else {
+	    	vi.setEnabled(false);
+	    	price.setTextColor(Color.parseColor("#B22626"));
+	    }
 		
+		return vi;
+	}
+	
+	@Override
+	public boolean isEnabled(int position) {
+	    LogicPowerUps powerUp = (LogicPowerUps) getItem(position);
+		
+		return (powerUp.isPurchasable());
 	}
 }
 
