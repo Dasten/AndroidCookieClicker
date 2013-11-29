@@ -7,6 +7,7 @@ public class LogicPowerUps extends Item
 	private int lvlRequired;
 	private int itemIdToBoost;
 	private boolean purchasable;
+	private boolean removed;
 	
 	
 	public LogicPowerUps(int id, String name, int boostType, double boost,
@@ -20,6 +21,8 @@ public class LogicPowerUps extends Item
 		this.lvlRequired = lvlRequired;
 		this.itemIdToBoost = itemIdToBoost;
 		this.purchasable = false;
+		this.removed = false;
+		
 	}
 	public void setName(String name) {
 		this.name = name;
@@ -62,5 +65,18 @@ public class LogicPowerUps extends Item
 	public void setPurchasable(boolean purchasable) {
 		this.purchasable = purchasable;
 	}
+	/**
+	 * @return the removed
+	 */
+	public boolean isRemoved() {
+		return removed;
+	}
+	/**
+	 * @param removed the removed to set
+	 */
+	public void setRemoved(boolean removed) {
+		this.removed = removed;
+	}
+	
 	
 }

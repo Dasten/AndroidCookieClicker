@@ -34,31 +34,38 @@ public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
 		View vi = view;
 		LogicPowerUps powerUp = (LogicPowerUps) getItem(position);
 		
-		if(vi == null) {
-			
-			vi = inflater.inflate(R.layout.list_row_powerups, null);
-		}
+		if(!powerUp.isRemoved()) {
 		
-		TextView name = (TextView)vi.findViewById(R.id.name_powerup);
-		TextView price = (TextView)vi.findViewById(R.id.price_powerup);
-		
-		//ImageView image = (ImageView)vi.findViewById(R.id.image_powerup);
-		
-		
-		//int resId = rs.getIdentifier("image_list_"+powerUp.getId(), "drawable", packageName);
-		
-		//image.setImageResource(resId);
-		
-		name.setText(powerUp.getName());
-		price.setText(LogicGame.formatNumber(powerUp.getPrice())+"");
+			if(vi == null) {
 				
-		if(isEnabled(position)){
-			vi.setEnabled(true);
-			price.setTextColor(Color.parseColor("#1CBC17"));
-	    } else {
-	    	vi.setEnabled(false);
-	    	price.setTextColor(Color.parseColor("#B22626"));
-	    }
+				vi = inflater.inflate(R.layout.list_row_powerups, null);
+			}
+			
+			
+			TextView name = (TextView)vi.findViewById(R.id.name_powerup);
+			TextView price = (TextView)vi.findViewById(R.id.price_powerup);
+			
+			//ImageView image = (ImageView)vi.findViewById(R.id.image_powerup);
+			
+			
+			//int resId = rs.getIdentifier("image_list_"+powerUp.getId(), "drawable", packageName);
+			
+			//image.setImageResource(resId);
+			
+			name.setText(powerUp.getName());
+			price.setText(LogicGame.formatNumber(powerUp.getPrice())+"");
+					
+			if(isEnabled(position)){
+				vi.setEnabled(true);
+				price.setTextColor(Color.parseColor("#1CBC17"));
+		    } else {
+		    	vi.setEnabled(false);
+		    	price.setTextColor(Color.parseColor("#B22626"));
+		    }
+			
+		} else {
+			vi.setVisibility(View.GONE);
+		}
 		
 		return vi;
 	}

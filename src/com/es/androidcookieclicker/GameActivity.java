@@ -68,7 +68,7 @@ public class GameActivity extends Activity {
 		
 		
 		LogicPowerUps[] pUps = {
-				new LogicPowerUps(100, "Reinforced index finger", 0, 0.1, 100, 1, 1),
+				new LogicPowerUps(100, "Reinforced index finger", 0, 0.1, 10, 1, 1),
 				new LogicPowerUps(101, "Ambidextrous", 1, 2, 10000, 10, 1),
 				new LogicPowerUps(102, "Forwards from grandma", 0, 0.3, 1000, 1, 2),
 				new LogicPowerUps(103, "Lubricated dentures", 1, 2, 100000, 10, 2),
@@ -198,11 +198,14 @@ public class GameActivity extends Activity {
 					}else{
 						/*Si el tipo de boost es 0 lo que hacemos es aumentar los Cps del item*/
 						itemToUpgrade.setCps((itemToUpgrade.getCps() + powerUpSeleccionada.getBoost()));
-					}	
+					}
 				}	
 	
 				LogicGame.decrementCookies(powerUpSeleccionada.getPrice());
 				//TO-DO Quitamos el elemento de la listview
+				
+				powerUpSeleccionada.setRemoved(true);
+				//LogicGame.getAdapterPUps().remove((LogicPowerUps)adapter.getSelectedItemId());
 					
 	    		//Notificacion
 	    		toast = Toast.makeText(getApplicationContext(),
@@ -216,7 +219,7 @@ public class GameActivity extends Activity {
 		LogicGame.setAdapter(adapterItemList);
 		LogicGame.setAdapterPUps(adapterBoostList);
 		
-		handler = new CookieHandler(cookiesCount, cps, listLogicItems);
+		handler = new CookieHandler(cookiesCount, cps, listLogicItems, listBoost);
 		cookieThread = new CookieThread(handler);
 	}
 	

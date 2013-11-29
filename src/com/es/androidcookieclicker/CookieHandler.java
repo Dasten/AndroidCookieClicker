@@ -21,12 +21,15 @@ public class CookieHandler extends Handler {
 	TextView textViewNoc;
 	TextView textViewCps;
 	ListView listItems;
+	ListView listPowerUps;
 	
 	
-	CookieHandler(TextView textViewNoc, TextView textViewCps, ListView listItems) {
+	CookieHandler(TextView textViewNoc, TextView textViewCps, ListView listItems, ListView listPowerUps) {
 		this.textViewNoc = textViewNoc;
 		this.textViewCps = textViewCps;
 		this.listItems = listItems;
+		this.listPowerUps = listPowerUps;
+		
 	}
 	
 	@Override
@@ -44,6 +47,7 @@ public class CookieHandler extends Handler {
 		textViewCps.setText(df.format(cps));
 		
 		updateListViewItemsManual();
+		updateListViewPowerUpsManual();
 	}
 	
 	private void updateListViewItemsManual() {
@@ -53,6 +57,14 @@ public class CookieHandler extends Handler {
 	        View view = listItems.getChildAt(i-start);
 	        listItems.getAdapter().getView(i, view, listItems);
 		}
-		
+	}
+	
+	private void updateListViewPowerUpsManual() {
+		int start = listPowerUps.getFirstVisiblePosition();
+		int end = listPowerUps.getLastVisiblePosition();
+		for(int i = start; i <=end; i++) {		
+	        View view = listPowerUps.getChildAt(i-start);
+	        listPowerUps.getAdapter().getView(i, view, listPowerUps);
+		}
 	}
 }
