@@ -9,7 +9,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +59,7 @@ public class ArrayAdapterCookie extends ArrayAdapter<LogicItems> {
 		price.setText(LogicGame.formatNumber(item.getPrice())+"");
 		level.setText(item.getLevel()+"");
 		
-		if(isEnabled(position)){
+		if(item.isPurchasable()){
 			vi.setEnabled(true);
 			price.setTextColor(Color.parseColor("#1CBC17"));
 	    } else {
@@ -72,10 +71,10 @@ public class ArrayAdapterCookie extends ArrayAdapter<LogicItems> {
 		
 	}
 
-	@Override
+	/*@Override
 	public boolean isEnabled(int position) {
-	    LogicItems item = (LogicItems) getItem(position);
+	    LogicItems item = getItem(position);
 		
 		return (item.isPurchasable());
-	}
+	}*/
 }

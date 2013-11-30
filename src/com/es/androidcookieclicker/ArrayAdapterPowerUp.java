@@ -73,7 +73,7 @@ public class ArrayAdapterPowerUp extends ArrayAdapter<LogicPowerUps> {
 	
 	@Override
 	public boolean isEnabled(int position) {
-	    LogicPowerUps powerUp = (LogicPowerUps) getItem(position);
+	    LogicPowerUps powerUp = getItem(position);
 		
 		return (powerUp.isPurchasable());
 	}

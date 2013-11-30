@@ -9,9 +9,10 @@ public class LogicItems extends Item
 	private int level;
 	private boolean purchasable;
 	
-	LogicItems(int id, String name, double cps, long basePrice) {
+	LogicItems(int id, String name, double cps, long basePrice, String description) {
 		this.id = id;
 		this.name = name;
+		this.description = description;
 		this.cps = cps;
 		this.price = basePrice;
 		this.basePrice = basePrice;
@@ -63,10 +64,16 @@ public class LogicItems extends Item
 	public void setPurchasable(boolean purchasable) {
 		this.purchasable = purchasable;
 	}
-
+	
+	public void incrementLevel() {
+		level++;
+	}
+	
+	public void decrementLevel() {
+		level--;
+	}
 	
 	public long updatePrice() {
-		this.level++;
 		price =  (long) (this.basePrice * Math.pow(1.15, level));
 		return price;
 	}

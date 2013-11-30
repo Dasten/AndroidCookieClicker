@@ -98,6 +98,10 @@ public class LogicGame {
 	public static void incrementCookies() {
 		cookies += cpc;
 	}
+	
+	public static void incrementCookies(double cExtras) {
+		cookies += cExtras;
+	}
 
 	public static void incrementCookiesPerSecond() {
 		cookies += cps/10;

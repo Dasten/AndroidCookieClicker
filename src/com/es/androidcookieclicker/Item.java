@@ -12,6 +12,8 @@ public abstract class Item
 	protected int id;
 	protected String name;
 	protected long price;
+	protected String description;
+	
 	/**
 	 * @return the id
 	 */
@@ -48,6 +50,19 @@ public abstract class Item
 	public void setPrice(long price) {
 		this.price = price;
 	}
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
 	
 	
 }
