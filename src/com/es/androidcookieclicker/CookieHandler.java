@@ -20,13 +20,16 @@ public class CookieHandler extends Handler {
 		
 	TextView textViewNoc;
 	TextView textViewCps;
+	TextView textViewCpc;
 	ListView listItems;
 	ListView listPowerUps;
+
 	
 	
-	CookieHandler(TextView textViewNoc, TextView textViewCps, ListView listItems, ListView listPowerUps) {
+	CookieHandler(TextView textViewNoc, TextView textViewCps, TextView textViewCpc, ListView listItems, ListView listPowerUps) {
 		this.textViewNoc = textViewNoc;
 		this.textViewCps = textViewCps;
+		this.textViewCpc = textViewCpc;
 		this.listItems = listItems;
 		this.listPowerUps = listPowerUps;
 		
@@ -36,6 +39,7 @@ public class CookieHandler extends Handler {
 	public void handleMessage(Message msg) {
 		Double noc = msg.getData().getDouble(LogicGame.noc_string);
 		Double cps = msg.getData().getDouble(LogicGame.cps_string);
+		Double cpc = msg.getData().getDouble(LogicGame.cpc_string);
 		
 		BigDecimal bd = new BigDecimal(noc);
 		
@@ -45,6 +49,7 @@ public class CookieHandler extends Handler {
 		DecimalFormat df= new DecimalFormat("#0.0");
 		
 		textViewCps.setText(df.format(cps));
+		textViewCpc.setText(df.format(cpc));
 		
 		updateListViewItemsManual();
 		updateListViewPowerUpsManual();

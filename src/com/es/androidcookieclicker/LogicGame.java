@@ -26,6 +26,9 @@ public class LogicGame {
 	//Number of cookies
 	public static String noc_string = "NOC";
 	
+	//Coockes per Click
+	public static String cpc_string = "CPC";
+	
 
 	public static Double getCps() {
 		return cps;
@@ -111,8 +114,10 @@ public class LogicGame {
 		LogicGame.cps += cps;
 	}
 	
-	
-	
+	public static void incrementCookiesPerClick(double cpc){
+		LogicGame.cpc += cpc;
+	}
+		
 	public static String formatNumber(Object number) {
 		return formatter.format(number);
 	}

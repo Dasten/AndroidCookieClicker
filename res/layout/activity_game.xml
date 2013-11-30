@@ -99,7 +99,7 @@
     			android:textSize="25sp"
     			android:gravity="center">
 			</TextView>
-
+			
             <TextView 
     			android:id="@+id/textCpc"
    			 	android:layout_width="fill_parent"
@@ -110,6 +110,17 @@
     			android:paddingLeft="5dp"
     			android:paddingRight="5dp"
     			android:paddingBottom="5dp"
+    			android:textStyle="bold"
+    			android:textColor="#fff"
+    			android:textSize="25sp"
+    			android:gravity="center">
+			</TextView>
+			
+            <TextView 
+    			android:id="@+id/cpcValue"
+   			 	android:layout_width="fill_parent"
+    			android:layout_height="0dp"
+    			android:layout_weight="1"
     			android:textStyle="bold"
     			android:textColor="#fff"
     			android:textSize="25sp"

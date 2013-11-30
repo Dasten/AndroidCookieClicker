@@ -31,6 +31,7 @@ public class GameActivity extends Activity {
 	
 	TextView cookiesCount;
 	TextView cps;
+	TextView cpc;
 	
 	Toast toast;
 	
@@ -46,6 +47,7 @@ public class GameActivity extends Activity {
 		
 		cookiesCount = (TextView)findViewById(R.id.textNumberCookies);
 		cps = (TextView)findViewById(R.id.cpsValue);
+		cpc = (TextView)findViewById(R.id.cpcValue);
 		
 		
 		
@@ -71,7 +73,7 @@ public class GameActivity extends Activity {
 		List<LogicPowerUps> pUps = new ArrayList<LogicPowerUps>();
 		
 		pUps.add(new LogicPowerUps(100, "Reinforced index finger", 0, 0.1, 10, 1, 1));		
-		pUps.add(new LogicPowerUps(101, "Ambidextrous", 1, 2, 10000, 10, 1));
+		pUps.add(new LogicPowerUps(101, "Ambidextrous", 1, 2, 100, 10, 1));
 		pUps.add(new LogicPowerUps(102, "Forwards from grandma", 0, 0.3, 1000, 1, 2));
 		pUps.add(new LogicPowerUps(103, "Lubricated dentures", 1, 2, 100000, 10, 2));
 		pUps.add(new LogicPowerUps(104, "Cheap hoes", 0, 1, 5000, 1, 3));
@@ -130,6 +132,7 @@ public class GameActivity extends Activity {
 		
 			
 		cps.setText(LogicGame.getCps().toString());
+		cpc.setText(LogicGame.getCpc().toString());
 		
 		listLogicItems.setOnItemClickListener(new OnItemClickListener(){
 
@@ -190,8 +193,7 @@ public class GameActivity extends Activity {
 	        		
 	        	});
                 
-	        	alert.create().show();
-	        	
+	        	alert.create().show();	
                 return true;
             }
 			
@@ -204,14 +206,22 @@ public class GameActivity extends Activity {
 					long id){
 				
 				LogicPowerUps powerUpSeleccionada = (LogicPowerUps) adapter.getItemAtPosition(position);
+				LogicItems itemToUpgrade = adapterItemList.getItem(powerUpSeleccionada.getItemIdToBoost()-1);
 				
 				if(powerUpSeleccionada.getItemIdToBoost() == -1){
 					/* Si el id del item que tenemos que upgradear es -1, el upgrade es sobre las cookies globales(CPS), */
 					LogicGame.incrementCookiesPerSecond(((LogicGame.getCps()*(powerUpSeleccionada.getBoost()/100))));
+					
+				}else if(powerUpSeleccionada.getItemIdToBoost() == 1){
+					/* Si el id del item que tenemos que upgradear es 1 (cursores), el upgrade es sobre los click globales(CPC),*/
+					if(powerUpSeleccionada.getId() == 100){
+						LogicGame.incrementCookiesPerClick(1);
+						itemToUpgrade.setCps((itemToUpgrade.getCps() + powerUpSeleccionada.getBoost()));
+					}else{
+						LogicGame.setCpc(LogicGame.getCpc() * 2);
+					}							
 				}else{
 				
-					LogicItems itemToUpgrade = adapterItemList.getItem(powerUpSeleccionada.getItemIdToBoost()-1);
-					
 					if(powerUpSeleccionada.getBoostType() == 1){
 						/*Si el tipo de boost es 1 lo que hacemos es doblar la productividad del item*/
 						itemToUpgrade.setCps(itemToUpgrade.getCps() * powerUpSeleccionada.getBoost());
@@ -231,7 +241,7 @@ public class GameActivity extends Activity {
 			};
 		});
 				
-		handler = new CookieHandler(cookiesCount, cps, listLogicItems, listBoost);
+		handler = new CookieHandler(cookiesCount, cps, cpc, listLogicItems, listBoost);
 		cookieThread = new CookieThread(handler);
 		
 	}
