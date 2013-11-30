@@ -165,7 +165,7 @@ public class GameActivity extends Activity {
 	        	
 	        	final LogicItems item = (LogicItems) adapter.getItemAtPosition(position);
                 
-	        	Builder alert = createDialogFromActivity(item.getName()+" ("+ item.getLevel(), item.getDescription());
+	        	Builder alert = createDialogFromActivity(item.getName()+" ("+ item.getLevel() + ")", "(" + item.getDescription() +")");
 	        	
 	        	alert.setPositiveButton("Sell(1)",
 	        			new DialogInterface.OnClickListener() {
