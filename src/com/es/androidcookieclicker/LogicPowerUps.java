@@ -24,6 +24,9 @@ public class LogicPowerUps extends Item
 		this.removed = false;
 		
 	}
+	
+	
+	
 	public void setName(String name) {
 		this.name = name;
 	}

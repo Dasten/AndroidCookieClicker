@@ -11,17 +11,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ListActivity;
 import android.graphics.Color;
-import android.graphics.LightingColorFilter;
 import android.graphics.Typeface;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
+
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -67,7 +63,7 @@ public class GameActivity extends Activity {
 				new LogicItems(9, "Time Machine", 98765.0, 123456789),
 				new LogicItems(10, "Antimatter Condenser", 999999.0, 3999999999L)
 		};		
-		
+	
 		
 		pUps = new ArrayList<LogicPowerUps>();
 		
@@ -93,7 +89,6 @@ public class GameActivity extends Activity {
 		pUps.add(new LogicPowerUps(119, "Large macaron collider", 1, 2, 3999999999000L, 10, 10));
 		pUps.add(new LogicPowerUps(120, "Sugar cookies", 1, 5, 99999999, 9999999, -1));
 		pUps.add(new LogicPowerUps(121, "Double-chip cookies", 1, 10, 99999999999L, 999999999 , -1));
-
 		
 		
 		/*
@@ -120,7 +115,7 @@ public class GameActivity extends Activity {
 		pUps.add(new LogicPowerUps(119, "Large macaron collider", 1, 2, 3999999999000L, 10, 10));
 		pUps.add(new LogicPowerUps(120, "Sugar cookies", 1, 5, 99999999, 9999999, -1));
 		pUps.add(new LogicPowerUps(121, "Double-chip cookies", 1, 10, 99999999999L, 999999999 , -1));
-		 */
+		*/
 		
 		
 		
