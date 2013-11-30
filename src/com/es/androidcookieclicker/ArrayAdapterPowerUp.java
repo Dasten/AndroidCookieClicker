@@ -1,10 +1,12 @@
 package com.es.androidcookieclicker;
 
+
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +15,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
+public class ArrayAdapterPowerUp extends ArrayAdapter<LogicPowerUps> {
 
 	private static LayoutInflater inflater = null;
 	private Resources rs;
 	private String packageName;
 	
-	public ArrayAdapterPowerUp(Context context, int resource, Object[] objects) {
+	public ArrayAdapterPowerUp(Context context, int resource, List<LogicPowerUps> objects) {
 		super(context, resource, objects);
 		
 		inflater = ((Activity)super.getContext()).getLayoutInflater();
@@ -32,7 +34,7 @@ public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
 	public View getView(int position, View view, ViewGroup vg){
 
 		View vi = view;
-		LogicPowerUps powerUp = (LogicPowerUps) getItem(position);
+		LogicPowerUps powerUp = getItem(position);
 		
 		if(!powerUp.isRemoved()) {
 		
@@ -64,7 +66,7 @@ public class ArrayAdapterPowerUp<Object> extends ArrayAdapter<Object> {
 		    }
 			
 		} else {
-			vi.setVisibility(View.GONE);
+			LogicGame.pups.remove(position);
 		}
 		
 		return vi;

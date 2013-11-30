@@ -1,6 +1,7 @@
 package com.es.androidcookieclicker;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 
 public class LogicGame {
@@ -10,7 +11,8 @@ public class LogicGame {
 	private static Double cpc = 1.0;
 	
 	private static ArrayAdapterCookie<LogicItems> adapterItems;
-	private static ArrayAdapterPowerUp<LogicPowerUps> adapterPUps;
+	private static ArrayAdapterPowerUp adapterPUps;
+	public static ArrayList<LogicPowerUps> pups;
 	private static DecimalFormat formatter = new DecimalFormat("#,###,###,###,###,###");
 	
 
@@ -60,11 +62,11 @@ public class LogicGame {
 		LogicGame.adapterItems = adapter;
 	}
 	
-	public static ArrayAdapterPowerUp<LogicPowerUps> getAdapterPUps() {
+	public static ArrayAdapterPowerUp getAdapterPUps() {
 		return adapterPUps;
 	}
 
-	public static void setAdapterPUps(ArrayAdapterPowerUp<LogicPowerUps> adapterPUps) {
+	public static void setAdapterPUps(ArrayAdapterPowerUp adapterPUps) {
 		LogicGame.adapterPUps = adapterPUps;
 	}
 
@@ -124,7 +126,7 @@ public class LogicGame {
 		}
 	}
 	
-	private static void checkIfHasCookiesForBuyPowerUps(ArrayAdapterPowerUp<LogicPowerUps> adapter) {
+	private static void checkIfHasCookiesForBuyPowerUps(ArrayAdapterPowerUp adapter) {
 		int countItems = adapter.getCount();
 		
 		for(int i = 0; i < countItems; i++) {
@@ -139,7 +141,7 @@ public class LogicGame {
 	}
 	
 	
-	private static void checkIfThePowerUpIsPurchasable(ArrayAdapterPowerUp<LogicPowerUps> adapterPUps, ArrayAdapterCookie<LogicItems> adapterItems){
+	private static void checkIfThePowerUpIsPurchasable(ArrayAdapterPowerUp adapterPUps, ArrayAdapterCookie<LogicItems> adapterItems){
 		
 		int countPowerUps = adapterPUps.getCount();
 				

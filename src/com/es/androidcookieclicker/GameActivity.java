@@ -3,6 +3,7 @@ package com.es.androidcookieclicker;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -36,7 +37,8 @@ public class GameActivity extends Activity {
 	Toast toast;
 	
 	ArrayAdapterCookie<LogicItems> adapterItemList;
-	ArrayAdapterPowerUp<LogicPowerUps> adapterBoostList;
+	ArrayAdapterPowerUp adapterBoostList;
+	List<LogicPowerUps> pUps;
 	
 
 	@SuppressLint("NewApi")
@@ -67,30 +69,31 @@ public class GameActivity extends Activity {
 		};		
 		
 		
-		LogicPowerUps[] pUps = {
-				new LogicPowerUps(100, "Reinforced index finger", 0, 0.1, 10, 1, 1),
-				new LogicPowerUps(101, "Ambidextrous", 1, 2, 10000, 10, 1),
-				new LogicPowerUps(102, "Forwards from grandma", 0, 0.3, 1000, 1, 2),
-				new LogicPowerUps(103, "Lubricated dentures", 1, 2, 100000, 10, 2),
-				new LogicPowerUps(104, "Cheap hoes", 0, 1, 5000, 1, 3),
-				new LogicPowerUps(105, "Cookie trees", 1, 2, 500000, 10, 3),
-				new LogicPowerUps(106, "Sturdier conveyor belts", 0, 4, 30000, 1, 4),
-				new LogicPowerUps(107, "Sweatshop", 1, 2, 3000000, 10, 4),
-				new LogicPowerUps(108, "Sugar gas", 0, 10, 100000, 1, 5),
-				new LogicPowerUps(109, "Ultradrill", 1, 2, 10000000, 10, 5),
-				new LogicPowerUps(110, "Vanilla nebulae", 0, 30, 400000, 1, 6),
-				new LogicPowerUps(111, "Frequent flyer", 1, 2, 40000000, 10, 6),
-				new LogicPowerUps(112, "Antimony", 0, 100, 2000000, 1, 7),
-				new LogicPowerUps(113, "True chocolate", 1, 2, 200000000, 10, 7),
-				new LogicPowerUps(114, "Ancient tablet", 0, 1666, 16666660, 1, 8),
-				new LogicPowerUps(115, "Soul bond", 1, 2, 1666666000, 10, 8),
-				new LogicPowerUps(116, "Flux capacitors", 0, 9876, 1234567890, 1, 9),
-				new LogicPowerUps(117, "Quantum conundrum", 1, 2, 98765456789L, 1, 9),
-				new LogicPowerUps(118, "Sugar bosons", 0, 99999, 39999999990L, 1, 10),
-				new LogicPowerUps(119, "Large macaron collider", 1, 2, 3999999999000L, 10, 10),
-				new LogicPowerUps(120, "Sugar cookies", 1, 5, 99999999, 9999999, -1),
-				new LogicPowerUps(121, "Double-chip cookies", 1, 10, 99999999999L, 999999999 , -1)
-		};
+		pUps = new ArrayList<LogicPowerUps>();
+		
+		pUps.add(new LogicPowerUps(100, "Reinforced index finger", 0, 0.1, 10, 1, 1));		
+		pUps.add(new LogicPowerUps(101, "Ambidextrous", 1, 2, 10000, 10, 1));
+		pUps.add(new LogicPowerUps(102, "Forwards from grandma", 0, 0.3, 1000, 1, 2));
+		pUps.add(new LogicPowerUps(103, "Lubricated dentures", 1, 2, 100000, 10, 2));
+		pUps.add(new LogicPowerUps(104, "Cheap hoes", 0, 1, 5000, 1, 3));
+		pUps.add(new LogicPowerUps(105, "Cookie trees", 1, 2, 500000, 10, 3));
+		pUps.add(new LogicPowerUps(106, "Sturdier conveyor belts", 0, 4, 30000, 1, 4));
+		pUps.add(new LogicPowerUps(107, "Sweatshop", 1, 2, 3000000, 10, 4));
+		pUps.add(new LogicPowerUps(108, "Sugar gas", 0, 10, 100000, 1, 5));
+		pUps.add(new LogicPowerUps(109, "Ultradrill", 1, 2, 10000000, 10, 5));
+		pUps.add(new LogicPowerUps(110, "Vanilla nebulae", 0, 30, 400000, 1, 6));
+		pUps.add(new LogicPowerUps(111, "Frequent flyer", 1, 2, 40000000, 10, 6));
+		pUps.add(new LogicPowerUps(112, "Antimony", 0, 100, 2000000, 1, 7));
+		pUps.add(new LogicPowerUps(113, "True chocolate", 1, 2, 200000000, 10, 7));
+		pUps.add(new LogicPowerUps(114, "Ancient tablet", 0, 1666, 16666660, 1, 8));
+		pUps.add(new LogicPowerUps(115, "Soul bond", 1, 2, 1666666000, 10, 8));
+		pUps.add(new LogicPowerUps(116, "Flux capacitors", 0, 9876, 1234567890, 1, 9));
+		pUps.add(new LogicPowerUps(117, "Quantum conundrum", 1, 2, 98765456789L, 1, 9));
+		pUps.add(new LogicPowerUps(118, "Sugar bosons", 0, 99999, 39999999990L, 1, 10));
+		pUps.add(new LogicPowerUps(119, "Large macaron collider", 1, 2, 3999999999000L, 10, 10));
+		pUps.add(new LogicPowerUps(120, "Sugar cookies", 1, 5, 99999999, 9999999, -1));
+		pUps.add(new LogicPowerUps(121, "Double-chip cookies", 1, 10, 99999999999L, 999999999 , -1));
+
 		
 		
 		/*
@@ -126,7 +129,7 @@ public class GameActivity extends Activity {
 		adapterItemList = new ArrayAdapterCookie<LogicItems>(this,
                 android.R.layout.simple_list_item_1, items);
 				
-		adapterBoostList = new ArrayAdapterPowerUp<LogicPowerUps>(this, 
+		adapterBoostList = new ArrayAdapterPowerUp(this, 
 				android.R.layout.simple_list_item_1, pUps);
 		
 				
@@ -218,6 +221,7 @@ public class GameActivity extends Activity {
 		
 		LogicGame.setAdapter(adapterItemList);
 		LogicGame.setAdapterPUps(adapterBoostList);
+		LogicGame.pups = (ArrayList<LogicPowerUps>) pUps;
 		
 		handler = new CookieHandler(cookiesCount, cps, listLogicItems, listBoost);
 		cookieThread = new CookieThread(handler);
