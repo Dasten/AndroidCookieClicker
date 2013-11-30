@@ -76,7 +76,7 @@ public class GameActivity extends Activity {
 		List<LogicPowerUps> pUps = new ArrayList<LogicPowerUps>();
 		
 		pUps.add(new LogicPowerUps(100, "Reinforced index finger", 0, 0.1, 10, 1, 1));		
-		pUps.add(new LogicPowerUps(101, "Ambidextrous", 1, 2, 100, 10, 1));
+		pUps.add(new LogicPowerUps(101, "Ambidextrous", 1, 2, 10000, 10, 1));
 		pUps.add(new LogicPowerUps(102, "Forwards from grandma", 0, 0.3, 1000, 1, 2));
 		pUps.add(new LogicPowerUps(103, "Lubricated dentures", 1, 2, 100000, 10, 2));
 		pUps.add(new LogicPowerUps(104, "Cheap hoes", 0, 1, 5000, 1, 3));

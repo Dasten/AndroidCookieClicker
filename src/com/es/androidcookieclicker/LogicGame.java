@@ -265,10 +265,15 @@ public class LogicGame {
 			try{
 				LogicItems itemToUpgrade = items.get(powerUp.getItemIdToBoost()-1);
 				
-				if(itemToUpgrade.getLevel() >= powerUp.getLvlRequired()){
-					pupsAvailable.add(powerUp);
-				}
-				
+				if(powerUp.getItemIdToBoost() == -1){
+					if(LogicGame.getCookies() >= powerUp.getLvlRequired()){
+						pupsAvailable.add(powerUp);
+					}
+				}else{
+					if(itemToUpgrade.getLevel() >= powerUp.getLvlRequired()){
+						pupsAvailable.add(powerUp);
+					}
+				}				
 			}catch(Exception ex) {
 				Log.println(0, null, ex.getMessage());
 			}
