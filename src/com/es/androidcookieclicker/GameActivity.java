@@ -135,7 +135,7 @@ public class GameActivity extends Activity {
 		headerListView.setTextColor(Color.BLACK);
 		headerListView.setTypeface(null, Typeface.BOLD);
 		
-		listLogicItems.addHeaderView(headerListView);
+		listLogicItems.addHeaderView(headerListView, null, false);
 		listLogicItems.setAdapter(adapterItemList);
 		listLogicItems.setAlpha(0.7f);
 		
@@ -147,7 +147,7 @@ public class GameActivity extends Activity {
 		headerBoostList.setTextColor(Color.BLACK);
 		headerBoostList.setTypeface(null, Typeface.BOLD);
 		
-		listBoost.addHeaderView(headerBoostList);
+		listBoost.addHeaderView(headerBoostList, null, false);
 		listBoost.setAdapter(adapterBoostList);
 		listBoost.setAlpha(0.7f);
 		
