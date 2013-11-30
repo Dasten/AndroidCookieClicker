@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 /**
  * @author pfranco
+ * @author Carlos B
  *
  */
 public class ArrayAdapterCookie extends ArrayAdapter<LogicItems> {
@@ -26,6 +27,13 @@ public class ArrayAdapterCookie extends ArrayAdapter<LogicItems> {
 	private Resources rs;
 	private String packageName;
 	
+	/**
+	 * Instantiates a new array adapter cookie.
+	 *
+	 * @param context the context
+	 * @param resource the resource
+	 * @param objects the objects
+	 */
 	public ArrayAdapterCookie(Context context, int resource, List<LogicItems> objects) {
 		super(context, resource, objects);
 		
@@ -68,13 +76,5 @@ public class ArrayAdapterCookie extends ArrayAdapter<LogicItems> {
 	    }
 		
 		return vi;
-		
 	}
-
-	/*@Override
-	public boolean isEnabled(int position) {
-	    LogicItems item = getItem(position);
-		
-		return (item.isPurchasable());
-	}*/
 }

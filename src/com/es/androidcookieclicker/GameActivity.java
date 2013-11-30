@@ -24,6 +24,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * @author pfranco
+ * @author Carlos B
+ *
+ */
 public class GameActivity extends Activity {
 	
 	Handler handler;
@@ -38,7 +43,7 @@ public class GameActivity extends Activity {
 	ArrayAdapterCookie adapterItemList;
 	ArrayAdapterPowerUp adapterBoostList;
 	
-
+	
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +53,6 @@ public class GameActivity extends Activity {
 		cookiesCount = (TextView)findViewById(R.id.textNumberCookies);
 		cps = (TextView)findViewById(R.id.cpsValue);
 		cpc = (TextView)findViewById(R.id.cpcValue);
-		
 		
 		
 		ListView listLogicItems = (ListView)findViewById(R.id.itemsList);
@@ -69,7 +73,6 @@ public class GameActivity extends Activity {
 		
 		LogicGame.setItems(items);
 	
-		
 		List<LogicPowerUps> pUps = new ArrayList<LogicPowerUps>();
 		
 		pUps.add(new LogicPowerUps(100, "Reinforced index finger", 0, 0.1, 10, 1, 1));		
@@ -104,9 +107,7 @@ public class GameActivity extends Activity {
 		adapterBoostList = new ArrayAdapterPowerUp(this, 
 				android.R.layout.simple_list_item_1, LogicGame.getPupsAvailable());
 		
-		
-		
-				
+						
 		TextView headerListView = new TextView(this);
 		headerListView.setText(R.string.text_header_list_items);
 		headerListView.setTextColor(Color.WHITE);
@@ -195,8 +196,7 @@ public class GameActivity extends Activity {
                 
 	        	alert.create().show();	
                 return true;
-            }
-			
+            }	
 		});
 		
 		
@@ -242,8 +242,7 @@ public class GameActivity extends Activity {
 		});
 				
 		handler = new CookieHandler(cookiesCount, cps, cpc, listLogicItems, listBoost);
-		cookieThread = new CookieThread(handler);
-		
+		cookieThread = new CookieThread(handler);		
 	}
 	
 
@@ -279,5 +278,4 @@ public class GameActivity extends Activity {
 		super.onStop();
 		cookieThread.isRunning.set(false);
 	}
-
 }

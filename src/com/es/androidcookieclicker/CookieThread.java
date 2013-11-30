@@ -10,13 +10,13 @@ import android.os.Handler;
 import android.os.Message;
 
 /**
- * @author pablo.fernandez
+ * @author pfranco
+ * @author Carlos B
  *
  */
 public class CookieThread implements Runnable {
 
 	private Handler handler;
-	
 	public AtomicBoolean isRunning;
 	
 	CookieThread(Handler hd) {
@@ -50,7 +50,4 @@ public class CookieThread implements Runnable {
 			e.printStackTrace();
 		}
 	}
-
-	
-	
 }

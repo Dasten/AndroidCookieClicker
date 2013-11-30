@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.es.androidcookieclicker;
 
 import java.text.DecimalFormat;
@@ -6,7 +9,11 @@ import java.util.List;
 
 import android.util.Log;
 
-
+/**
+ * @author pfranco
+ * @author Carlos B
+ *
+ */
 public class LogicGame {
 	
 	private static Double cookies = 0.0;
@@ -30,15 +37,27 @@ public class LogicGame {
 	public static String cpc_string = "CPC";
 	
 
+	/**
+	 * Gets the cps.
+	 *
+	 * @return the cps
+	 */
 	public static Double getCps() {
 		return cps;
 	}
 
+	/**
+	 * Sets the cps.
+	 *
+	 * @param cps the new cps
+	 */
 	public static void setCps(Double cps) {
 		LogicGame.cps = cps;
 	}
 	
 	/**
+	 * Gets the cpc.
+	 *
 	 * @return the cpc
 	 */
 	public static Double getCpc() {
@@ -46,15 +65,17 @@ public class LogicGame {
 	}
 
 	/**
+	 * Sets the cpc.
+	 *
 	 * @param cpc the cpc to set
 	 */
 	public static void setCpc(Double cpc) {
 		LogicGame.cpc = cpc;
 	}
 	
-	
-
 	/**
+	 * Gets the items.
+	 *
 	 * @return the items
 	 */
 	public static List<LogicItems> getItems() {
@@ -62,6 +83,8 @@ public class LogicGame {
 	}
 
 	/**
+	 * Sets the items.
+	 *
 	 * @param items the items to set
 	 */
 	public static void setItems(List<LogicItems> items) {
@@ -69,6 +92,8 @@ public class LogicGame {
 	}
 
 	/**
+	 * Gets the pups.
+	 *
 	 * @return the pups
 	 */
 	public static List<LogicPowerUps> getPups() {
@@ -76,6 +101,8 @@ public class LogicGame {
 	}
 
 	/**
+	 * Sets the pups.
+	 *
 	 * @param pups the pups to set
 	 */
 	public static void setPups(List<LogicPowerUps> pups) {
@@ -83,45 +110,84 @@ public class LogicGame {
 	}
 
 	/**
+	 * Gets the pups available.
+	 *
 	 * @return the pupsAvailable
 	 */
 	public static List<LogicPowerUps> getPupsAvailable() {
 		return pupsAvailable;
 	}
 	
-
+	/**
+	 * Inits the cookies.
+	 */
 	static void init() {
 		cookies = 0.0;
 	}
 
+	/**
+	 * Gets the cookies.
+	 *
+	 * @return the cookies
+	 */
 	public static Double getCookies() {
 		return cookies;
 	}
 	
+	/**
+	 * Increment cookies.
+	 */
 	public static void incrementCookies() {
 		cookies += cpc;
 	}
 	
+	/**
+	 * Increment cookies.
+	 *
+	 * @param cExtras the cookies extras
+	 */
 	public static void incrementCookies(double cExtras) {
 		cookies += cExtras;
 	}
 
+	/**
+	 * Increment cookies per second.
+	 */
 	public static void incrementCookiesPerSecond() {
 		cookies += cps/10;
 	}
 	
+	/**
+	 * Increment cookies per second.
+	 *
+	 * @param cps the cps
+	 */
 	public static void incrementCookiesPerSecond(double cps) {
 		LogicGame.cps += cps;
 	}
 	
+	/**
+	 * Increment cookies per click.
+	 *
+	 * @param cpc the cpc
+	 */
 	public static void incrementCookiesPerClick(double cpc){
 		LogicGame.cpc += cpc;
 	}
 		
+	/**
+	 * Format number.
+	 *
+	 * @param number the number
+	 * @return the string
+	 */
 	public static String formatNumber(Object number) {
 		return formatter.format(number);
 	}
 	
+	/**
+	 * Llama a las funciona a actualizar por tick.
+	 */
 	public static void tick() {
 		incrementCookiesPerSecond();
 		checkIfHasCookiesForBuyItem();
@@ -130,6 +196,11 @@ public class LogicGame {
 		checkIfHasCookiesForBuyPowerUps();
 	}
 	
+	/**
+	 * Decrement cookies.
+	 *
+	 * @param cookies the cookies
+	 */
 	public static void decrementCookies(double cookies) {
 		double cookiesAux = LogicGame.cookies - cookies;
 		
@@ -141,6 +212,9 @@ public class LogicGame {
 		
 	}
 	
+	/**
+	 * Check if has cookies for buy item.
+	 */
 	private static void checkIfHasCookiesForBuyItem() {
 		int countItems = items.size();
 		
@@ -155,6 +229,9 @@ public class LogicGame {
 		}
 	}
 	
+	/**
+	 * Check if has cookies for buy power ups.
+	 */
 	private static void checkIfHasCookiesForBuyPowerUps() {
 		int countItems = pupsAvailable.size();
 				
@@ -174,6 +251,9 @@ public class LogicGame {
 	}
 	
 	
+	/**
+	 * Check if the power up is available.
+	 */
 	private static void checkIfThePowerUpIsAvailable(){
 		
 		int countPowerUps = pups.size();

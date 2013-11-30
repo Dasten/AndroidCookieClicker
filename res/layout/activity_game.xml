@@ -71,8 +71,6 @@
     			android:gravity="center">
 			</TextView>
 			
-
-
             <TextView 
     			android:id="@+id/textCps"
    			 	android:layout_width="fill_parent"
@@ -139,8 +137,7 @@
         android:textStyle="bold"
         android:focusable="false"  />
         <!-- android:setFocusableInTouchMode="false"  -->
-      
-    
+          
     <ListView
         android:id="@+id/powerUpsList"
         android:layout_width="0dp"

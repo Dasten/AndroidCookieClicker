@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 /**
  * @author pfranco
+ * @author Carlos B
  *
  */
 public class CookieHandler extends Handler {
@@ -23,16 +24,22 @@ public class CookieHandler extends Handler {
 	TextView textViewCpc;
 	ListView listItems;
 	ListView listPowerUps;
-
 	
-	
+	/**
+	 * Instantiates a new cookie handler.
+	 *
+	 * @param textViewNoc the text view noc
+	 * @param textViewCps the text view cps
+	 * @param textViewCpc the text view cpc
+	 * @param listItems the list items
+	 * @param listPowerUps the list power ups
+	 */
 	CookieHandler(TextView textViewNoc, TextView textViewCps, TextView textViewCpc, ListView listItems, ListView listPowerUps) {
 		this.textViewNoc = textViewNoc;
 		this.textViewCps = textViewCps;
 		this.textViewCpc = textViewCpc;
 		this.listItems = listItems;
-		this.listPowerUps = listPowerUps;
-		
+		this.listPowerUps = listPowerUps;	
 	}
 	
 	@Override
@@ -55,6 +62,9 @@ public class CookieHandler extends Handler {
 		updateListViewPowerUpsManual();
 	}
 	
+	/**
+	 * Update list view items manual.
+	 */
 	private void updateListViewItemsManual() {
 		int start = listItems.getFirstVisiblePosition();
 		int end = listItems.getLastVisiblePosition();
@@ -64,6 +74,9 @@ public class CookieHandler extends Handler {
 		}
 	}
 	
+	/**
+	 * Update list view power ups manual.
+	 */
 	private void updateListViewPowerUpsManual() {
 		int start = listPowerUps.getFirstVisiblePosition();
 		int end = listPowerUps.getLastVisiblePosition();

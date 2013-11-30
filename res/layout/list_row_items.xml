@@ -58,5 +58,5 @@
         android:textColor="#10bcc9"
         android:textStyle="bold"
         android:focusable="false"/>
- 
+
 </RelativeLayout>

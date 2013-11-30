@@ -5,6 +5,7 @@ package com.es.androidcookieclicker;
 
 /**
  * @author pfranco
+ * @author Carlos B
  *
  */
 public abstract class Item 
@@ -62,7 +63,4 @@ public abstract class Item
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
-	
 }

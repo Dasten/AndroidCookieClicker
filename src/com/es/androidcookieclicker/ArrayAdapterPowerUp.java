@@ -14,13 +14,24 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
+/**
+ * @author pfranco
+ * @author Carlos B
+ *
+ */
 public class ArrayAdapterPowerUp extends ArrayAdapter<LogicPowerUps> {
 
 	private static LayoutInflater inflater = null;
 	private Resources rs;
 	private String packageName;
 	
+	/**
+	 * Instantiates a new array adapter power up.
+	 *
+	 * @param context the context
+	 * @param resource the resource
+	 * @param objects the objects
+	 */
 	public ArrayAdapterPowerUp(Context context, int resource, List<LogicPowerUps> objects) {
 		super(context, resource, objects);
 		
