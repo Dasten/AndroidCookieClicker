@@ -2,6 +2,9 @@ package com.es.androidcookieclicker;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
+
+import android.util.Log;
 
 
 public class LogicGame {
@@ -10,9 +13,9 @@ public class LogicGame {
 	private static Double cps = 0.0;
 	private static Double cpc = 1.0;
 	
-	private static ArrayAdapterCookie<LogicItems> adapterItems;
-	private static ArrayAdapterPowerUp adapterPUps;
-	public static ArrayList<LogicPowerUps> pups;
+	private static List<LogicItems> items;
+	private static List<LogicPowerUps> pups;
+	private static List<LogicPowerUps> pupsAvailable = new ArrayList<LogicPowerUps>();
 	private static DecimalFormat formatter = new DecimalFormat("#,###,###,###,###,###");
 	
 
@@ -49,26 +52,40 @@ public class LogicGame {
 	
 
 	/**
-	 * @return the adapter
+	 * @return the items
 	 */
-	public static ArrayAdapterCookie<LogicItems> getAdapter() {
-		return adapterItems;
+	public static List<LogicItems> getItems() {
+		return items;
 	}
 
 	/**
-	 * @param adapter the adapter to set
+	 * @param items the items to set
 	 */
-	public static void setAdapter(ArrayAdapterCookie<LogicItems> adapter) {
-		LogicGame.adapterItems = adapter;
-	}
-	
-	public static ArrayAdapterPowerUp getAdapterPUps() {
-		return adapterPUps;
+	public static void setItems(List<LogicItems> items) {
+		LogicGame.items = items;
 	}
 
-	public static void setAdapterPUps(ArrayAdapterPowerUp adapterPUps) {
-		LogicGame.adapterPUps = adapterPUps;
+	/**
+	 * @return the pups
+	 */
+	public static List<LogicPowerUps> getPups() {
+		return pups;
 	}
+
+	/**
+	 * @param pups the pups to set
+	 */
+	public static void setPups(List<LogicPowerUps> pups) {
+		LogicGame.pups = pups;
+	}
+
+	/**
+	 * @return the pupsAvailable
+	 */
+	public static List<LogicPowerUps> getPupsAvailable() {
+		return pupsAvailable;
+	}
+	
 
 	static void init() {
 		cookies = 0.0;
@@ -90,15 +107,18 @@ public class LogicGame {
 		LogicGame.cps += cps;
 	}
 	
+	
+	
 	public static String formatNumber(Object number) {
 		return formatter.format(number);
 	}
 	
 	public static void tick() {
 		incrementCookiesPerSecond();
-		checkIfHasCookiesForBuyItem(adapterItems);
-		checkIfHasCookiesForBuyPowerUps(adapterPUps);
-		checkIfThePowerUpIsPurchasable(adapterPUps, adapterItems);
+		checkIfHasCookiesForBuyItem();
+		checkIfHasCookiesForBuyPowerUps();
+		checkIfThePowerUpIsAvailable();
+		checkIfHasCookiesForBuyPowerUps();
 	}
 	
 	public static void decrementCookies(double cookies) {
@@ -112,11 +132,11 @@ public class LogicGame {
 		
 	}
 	
-	private static void checkIfHasCookiesForBuyItem(ArrayAdapterCookie<LogicItems> adapter) {
-		int countItems = adapter.getCount();
+	private static void checkIfHasCookiesForBuyItem() {
+		int countItems = items.size();
 		
 		for(int i = 0; i < countItems; i++) {
-			LogicItems item = adapter.getItem(i);
+			LogicItems item = items.get(i);
 			
 			if(LogicGame.cookies >= item.getPrice()) {
 				item.setPurchasable(true);
@@ -126,11 +146,15 @@ public class LogicGame {
 		}
 	}
 	
-	private static void checkIfHasCookiesForBuyPowerUps(ArrayAdapterPowerUp adapter) {
-		int countItems = adapter.getCount();
-		
+	private static void checkIfHasCookiesForBuyPowerUps() {
+		int countItems = pupsAvailable.size();
+				
 		for(int i = 0; i < countItems; i++) {
-			LogicPowerUps powerUp = adapter.getItem(i);
+			LogicPowerUps powerUp = pupsAvailable.get(i);
+			
+			if(pups.contains(powerUp)) {
+				pups.remove(powerUp);
+			}
 			
 			if(LogicGame.cookies >= powerUp.getPrice()) {
 				powerUp.setPurchasable(true);
@@ -141,25 +165,31 @@ public class LogicGame {
 	}
 	
 	
-	private static void checkIfThePowerUpIsPurchasable(ArrayAdapterPowerUp adapterPUps, ArrayAdapterCookie<LogicItems> adapterItems){
+	private static void checkIfThePowerUpIsAvailable(){
 		
-		int countPowerUps = adapterPUps.getCount();
-				
+		int countPowerUps = pups.size();
+						
 		for(int i = 0; i < countPowerUps; i++) {
-			LogicPowerUps powerUp = adapterPUps.getItem(i);
+			LogicPowerUps powerUp = pups.get(i);
 			
-			if(LogicGame.cookies >= powerUp.getPrice()) {
-				LogicItems itemToUpgrade = adapterItems.getItem(powerUp.getItemIdToBoost()-1);
+			//if(LogicGame.cookies >= powerUp.getPrice()) {
+			try{
+				LogicItems itemToUpgrade = items.get(powerUp.getItemIdToBoost()-1);
 				
 				if(itemToUpgrade.getLevel() >= powerUp.getLvlRequired()){
-					powerUp.setPurchasable(true);
-				}else{
-					powerUp.setPurchasable(false);
-				}				
+					pupsAvailable.add(powerUp);
+				}
 				
-			} else {
-				powerUp.setPurchasable(false);
+			}catch(Exception ex) {
+				Log.println(0, null, ex.getMessage());
 			}
+				/*else{
+					powerUp.setPurchasable(false);
+				}*/				
+				
+			/*} else {
+				powerUp.setPurchasable(false);
+			}*/
 		}
 	}
 }

@@ -80,6 +80,7 @@ public class LogicPowerUps extends Item
 	public void setRemoved(boolean removed) {
 		this.removed = removed;
 	}
+
 	
 	
 }

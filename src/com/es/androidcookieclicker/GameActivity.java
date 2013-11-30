@@ -32,9 +32,8 @@ public class GameActivity extends Activity {
 	
 	Toast toast;
 	
-	ArrayAdapterCookie<LogicItems> adapterItemList;
+	ArrayAdapterCookie adapterItemList;
 	ArrayAdapterPowerUp adapterBoostList;
-	List<LogicPowerUps> pUps;
 	
 
 	@SuppressLint("NewApi")
@@ -51,21 +50,23 @@ public class GameActivity extends Activity {
 		ListView listLogicItems = (ListView)findViewById(R.id.itemsList);
 		ListView listBoost = (ListView)findViewById(R.id.powerUpsList);
 		
-		LogicItems[] items = {
-				new LogicItems(1, "Cursor", 0.1, 15),
-				new LogicItems(2, "Grandma", 0.5, 100),
-				new LogicItems(3, "Farm", 4.0, 500),
-				new LogicItems(4, "Factory", 10.0, 3000),
-				new LogicItems(5, "Mine", 40.0, 10000),
-				new LogicItems(6, "Shipment", 100.0, 40000),
-				new LogicItems(7, "Alchemy Lab", 400.0, 200000),
-				new LogicItems(8, "Portal", 6666.0, 1600000),
-				new LogicItems(9, "Time Machine", 98765.0, 123456789),
-				new LogicItems(10, "Antimatter Condenser", 999999.0, 3999999999L)
-		};		
+		List<LogicItems> items = new ArrayList<LogicItems>();
+		
+		items.add(new LogicItems(1, "Cursor", 0.1, 15));
+		items.add(new LogicItems(2, "Grandma", 0.5, 100));
+		items.add(new LogicItems(3, "Farm", 4.0, 500));
+		items.add(new LogicItems(4, "Factory", 10.0, 3000));
+		items.add(new LogicItems(5, "Mine", 40.0, 10000));
+		items.add(new LogicItems(6, "Shipment", 100.0, 40000));
+		items.add(new LogicItems(7, "Alchemy Lab", 400.0, 200000));
+		items.add(new LogicItems(8, "Portal", 6666.0, 1600000));
+		items.add(new LogicItems(9, "Time Machine", 98765.0, 123456789));
+		items.add(new LogicItems(10, "Antimatter Condenser", 999999.0, 3999999999L));
+		
+		LogicGame.setItems(items);
 	
 		
-		pUps = new ArrayList<LogicPowerUps>();
+		List<LogicPowerUps> pUps = new ArrayList<LogicPowerUps>();
 		
 		pUps.add(new LogicPowerUps(100, "Reinforced index finger", 0, 0.1, 10, 1, 1));		
 		pUps.add(new LogicPowerUps(101, "Ambidextrous", 1, 2, 10000, 10, 1));
@@ -89,6 +90,8 @@ public class GameActivity extends Activity {
 		pUps.add(new LogicPowerUps(119, "Large macaron collider", 1, 2, 3999999999000L, 10, 10));
 		pUps.add(new LogicPowerUps(120, "Sugar cookies", 1, 5, 99999999, 9999999, -1));
 		pUps.add(new LogicPowerUps(121, "Double-chip cookies", 1, 10, 99999999999L, 999999999 , -1));
+		
+		LogicGame.setPups(pUps);
 		
 		
 		/*
@@ -121,11 +124,16 @@ public class GameActivity extends Activity {
 		
 		
 				
-		adapterItemList = new ArrayAdapterCookie<LogicItems>(this,
-                android.R.layout.simple_list_item_1, items);
+		adapterItemList = new ArrayAdapterCookie(this,
+                android.R.layout.simple_list_item_1, LogicGame.getItems());
 				
+		/*adapterBoostList = new ArrayAdapterPowerUp(this, 
+				android.R.layout.simple_list_item_1, LogicGame.getPups());*/
+		
 		adapterBoostList = new ArrayAdapterPowerUp(this, 
-				android.R.layout.simple_list_item_1, pUps);
+				android.R.layout.simple_list_item_1, LogicGame.getPupsAvailable());
+		
+		
 		
 				
 		TextView headerListView = new TextView(this);
@@ -213,11 +221,7 @@ public class GameActivity extends Activity {
 	    		toast.show();
 			};
 		});
-		
-		LogicGame.setAdapter(adapterItemList);
-		LogicGame.setAdapterPUps(adapterBoostList);
-		LogicGame.pups = (ArrayList<LogicPowerUps>) pUps;
-		
+				
 		handler = new CookieHandler(cookiesCount, cps, listLogicItems, listBoost);
 		cookieThread = new CookieThread(handler);
 	}

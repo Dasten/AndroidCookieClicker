@@ -65,7 +65,7 @@ public class ArrayAdapterPowerUp extends ArrayAdapter<LogicPowerUps> {
 		    }
 			
 		} else {
-			LogicGame.pups.remove(position);
+			LogicGame.getPupsAvailable().remove(position);
 		}
 		
 		return vi;

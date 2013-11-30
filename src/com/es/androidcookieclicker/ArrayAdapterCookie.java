@@ -3,7 +3,7 @@
  */
 package com.es.androidcookieclicker;
 
-import java.text.DecimalFormat;
+import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
@@ -21,13 +21,13 @@ import android.widget.TextView;
  * @author pfranco
  *
  */
-public class ArrayAdapterCookie<Object> extends ArrayAdapter<Object> {
+public class ArrayAdapterCookie extends ArrayAdapter<LogicItems> {
 
 	private static LayoutInflater inflater = null;
 	private Resources rs;
 	private String packageName;
 	
-	public ArrayAdapterCookie(Context context, int resource, Object[] objects) {
+	public ArrayAdapterCookie(Context context, int resource, List<LogicItems> objects) {
 		super(context, resource, objects);
 		
 		inflater = ((Activity)super.getContext()).getLayoutInflater();
@@ -38,22 +38,6 @@ public class ArrayAdapterCookie<Object> extends ArrayAdapter<Object> {
 	
 	@Override
 	public View getView(int position, View view, ViewGroup vg){
-		/*View row = super.getView(position, view, vg);
-		TextView text = (TextView) super.getView(position, view, vg);
-		//text.setTypeface(null, Typeface.BOLD);
-		
-		//Images
-		
-		
-				
-		if(isEnabled(position)){
-			row.setEnabled(true);
-			text.setTextColor(Color.parseColor("#1CBC17"));
-	    } else {
-	    	row.setEnabled(false);
-	    	text.setTextColor(Color.parseColor("#B22626"));
-	    }*/
-		
 		View vi = view;
 		LogicItems item = (LogicItems) getItem(position);
 		
