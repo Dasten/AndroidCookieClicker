@@ -1,11 +1,12 @@
 /*
  * 
  */
-package com.es.androidcookieclicker;
+package com.es.androidcookieclicker.logics;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+
 
 import android.util.Log;
 

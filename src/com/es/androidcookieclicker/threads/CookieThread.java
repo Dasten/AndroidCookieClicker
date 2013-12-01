@@ -1,9 +1,11 @@
 /**
  * 
  */
-package com.es.androidcookieclicker;
+package com.es.androidcookieclicker.threads;
 
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import com.es.androidcookieclicker.logics.LogicGame;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,7 +21,7 @@ public class CookieThread implements Runnable {
 	private Handler handler;
 	public AtomicBoolean isRunning;
 	
-	CookieThread(Handler hd) {
+	public CookieThread(Handler hd) {
 		isRunning = new AtomicBoolean(false);
 		
 		this.handler = hd;

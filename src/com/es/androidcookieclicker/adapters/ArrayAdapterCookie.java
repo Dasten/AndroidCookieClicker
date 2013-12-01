@@ -1,9 +1,13 @@
 /**
  * 
  */
-package com.es.androidcookieclicker;
+package com.es.androidcookieclicker.adapters;
 
 import java.util.List;
+
+import com.es.androidcookieclicker.R;
+import com.es.androidcookieclicker.logics.LogicGame;
+import com.es.androidcookieclicker.logics.LogicItems;
 
 import android.app.Activity;
 import android.content.Context;

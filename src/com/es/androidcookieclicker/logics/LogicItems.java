@@ -1,4 +1,5 @@
-package com.es.androidcookieclicker;
+package com.es.androidcookieclicker.logics;
+
 
 /**
  * @author pfranco
@@ -22,7 +23,7 @@ public class LogicItems extends Item
 	 * @param basePrice the base price
 	 * @param description the description
 	 */
-	LogicItems(int id, String name, double cps, long basePrice, String description) {
+	public LogicItems(int id, String name, double cps, long basePrice, String description) {
 		this.id = id;
 		this.name = name;
 		this.description = description;

@@ -1,7 +1,8 @@
 /*
  * 
  */
-package com.es.androidcookieclicker;
+package com.es.androidcookieclicker.logics;
+
 
 /**
  * @author pfranco

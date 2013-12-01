@@ -1,10 +1,12 @@
 /**
  * 
  */
-package com.es.androidcookieclicker;
+package com.es.androidcookieclicker.threads;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+
+import com.es.androidcookieclicker.logics.LogicGame;
 
 import android.os.Handler;
 import android.os.Message;
@@ -34,7 +36,7 @@ public class CookieHandler extends Handler {
 	 * @param listItems the list items
 	 * @param listPowerUps the list power ups
 	 */
-	CookieHandler(TextView textViewNoc, TextView textViewCps, TextView textViewCpc, ListView listItems, ListView listPowerUps) {
+	public CookieHandler(TextView textViewNoc, TextView textViewCps, TextView textViewCpc, ListView listItems, ListView listPowerUps) {
 		this.textViewNoc = textViewNoc;
 		this.textViewCps = textViewCps;
 		this.textViewCpc = textViewCpc;

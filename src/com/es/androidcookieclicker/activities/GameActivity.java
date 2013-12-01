@@ -1,8 +1,17 @@
-package com.es.androidcookieclicker;
+package com.es.androidcookieclicker.activities;
 
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.es.androidcookieclicker.R;
+import com.es.androidcookieclicker.adapters.ArrayAdapterCookie;
+import com.es.androidcookieclicker.adapters.ArrayAdapterPowerUp;
+import com.es.androidcookieclicker.logics.LogicGame;
+import com.es.androidcookieclicker.logics.LogicItems;
+import com.es.androidcookieclicker.logics.LogicPowerUps;
+import com.es.androidcookieclicker.threads.CookieHandler;
+import com.es.androidcookieclicker.threads.CookieThread;
 
 
 
