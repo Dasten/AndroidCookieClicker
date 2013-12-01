@@ -260,6 +260,15 @@ public class GameActivity extends Activity {
                 
 	        	Builder alert = createDialogFromActivity(powerUp.getName(), "(" + powerUp.getDescription() +")");
 	        	      
+	        	alert.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+	        		
+	        	});
+	        	
 	        	alert.create().show();	
                 return true;
             }	
