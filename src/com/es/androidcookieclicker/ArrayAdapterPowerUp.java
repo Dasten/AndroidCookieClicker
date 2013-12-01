@@ -82,15 +82,6 @@ public class ArrayAdapterPowerUp extends ArrayAdapter<LogicPowerUps> {
 		}
 		
 		return vi;
-	}
-	
-	
-	@Override
-	public boolean isEnabled(int position) {
-	    LogicPowerUps powerUp = getItem(position);
-		
-		return (powerUp.isPurchasable());
-	}
-	
+	}	
 }
 
