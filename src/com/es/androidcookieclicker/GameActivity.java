@@ -208,36 +208,45 @@ public class GameActivity extends Activity {
 				LogicPowerUps powerUpSeleccionada = (LogicPowerUps) adapter.getItemAtPosition(position);
 				LogicItems itemToUpgrade = adapterItemList.getItem(powerUpSeleccionada.getItemIdToBoost()-1);
 				
-				if(powerUpSeleccionada.getItemIdToBoost() == -1){
-					/* Si el id del item que tenemos que upgradear es -1, el upgrade es sobre las cookies globales(CPS), */
-					LogicGame.incrementCookiesPerSecond(((LogicGame.getCps()*(powerUpSeleccionada.getBoost()/100))));
-					
-				}else if(powerUpSeleccionada.getItemIdToBoost() == 1){
-					/* Si el id del item que tenemos que upgradear es 1 (cursores), el upgrade es sobre los click globales(CPC),*/
-					if(powerUpSeleccionada.getId() == 100){
-						LogicGame.incrementCookiesPerClick(1);
-						itemToUpgrade.setCps((itemToUpgrade.getCps() + powerUpSeleccionada.getBoost()));
-					}else{
-						LogicGame.setCpc(LogicGame.getCpc() * 2);
-					}							
-				}else{
-				
-					if(powerUpSeleccionada.getBoostType() == 1){
-						/*Si el tipo de boost es 1 lo que hacemos es doblar la productividad del item*/
-						itemToUpgrade.setCps(itemToUpgrade.getCps() * powerUpSeleccionada.getBoost());
-					}else{
-						/*Si el tipo de boost es 0 lo que hacemos es aumentar los Cps del item*/
-						itemToUpgrade.setCps((itemToUpgrade.getCps() + powerUpSeleccionada.getBoost()));
+				if(powerUpSeleccionada.isPurchasable()){
+					if (powerUpSeleccionada.getItemIdToBoost() == -1) {
+						
+						/*Si el id del item que tenemos que upgradear es -1, el upgrade es sobre las cookies globales(CPS),*/
+						LogicGame.incrementCookiesPerSecond(((LogicGame.getCps() * (powerUpSeleccionada.getBoost() / 100))));
+
+					} else if (powerUpSeleccionada.getItemIdToBoost() == 1) {
+						
+						/*Si el id del item que tenemos que upgradear es 1 (cursores), el upgrade es sobre los click globales(CPC)*/
+						if (powerUpSeleccionada.getId() == 100) {
+							
+							LogicGame.incrementCookiesPerClick(1);
+							itemToUpgrade.setCps((itemToUpgrade.getCps() + powerUpSeleccionada.getBoost()));
+							
+						} else {
+							
+							LogicGame.setCpc(LogicGame.getCpc() * 2);
+						}
+					} else {
+
+						if (powerUpSeleccionada.getBoostType() == 1) {
+							
+							/* Si el tipo de boost es 1 lo que hacemos es doblar la productividad del item */
+							itemToUpgrade.setCps(itemToUpgrade.getCps() * powerUpSeleccionada.getBoost());
+						} else {
+							
+							/* Si el tipo de boost es 0 lo que hacemos es aumentar los Cps del item */
+							itemToUpgrade.setCps((itemToUpgrade.getCps() + powerUpSeleccionada.getBoost()));
+						}
 					}
-				}	
-	
-				LogicGame.decrementCookies(powerUpSeleccionada.getPrice());
-				//TO-DO Quitamos el elemento de la listview
-				
-				powerUpSeleccionada.setRemoved(true);
-					
-	    		//Notificacion
-				showNotification(powerUpSeleccionada.getName() + " Comprado!");
+
+					LogicGame.decrementCookies(powerUpSeleccionada.getPrice());
+					// TO-DO Quitamos el elemento de la listview
+
+					powerUpSeleccionada.setRemoved(true);
+
+					// Notificacion
+					showNotification(powerUpSeleccionada.getName() + " Comprado!");
+				}
 			};
 		});
 			
