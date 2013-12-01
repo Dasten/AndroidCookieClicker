@@ -43,6 +43,14 @@ public class ArrayAdapterCookie extends ArrayAdapter<LogicItems> {
 		packageName = context.getPackageName();
 	}
 	
+	
+	/**
+	 * Draw row of listviews
+	 *
+	 * @param context the context
+	 * @param resource the resource
+	 * @param objects the objects
+	 */
 	@Override
 	public View getView(int position, View view, ViewGroup vg){
 		View vi = view;
