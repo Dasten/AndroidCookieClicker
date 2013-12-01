@@ -44,20 +44,24 @@ public class CookieHandler extends Handler {
 	
 	@Override
 	public void handleMessage(Message msg) {
+		//Restore all data from thread
 		Double noc = msg.getData().getDouble(LogicGame.noc_string);
 		Double cps = msg.getData().getDouble(LogicGame.cps_string);
 		Double cpc = msg.getData().getDouble(LogicGame.cpc_string);
 		
 		BigDecimal bd = new BigDecimal(noc);
 		
+		//Show number of cookies
 		textViewNoc.setText(LogicGame.formatNumber(((Integer)bd.intValue())));
 		
-		//Format numero (mostrar solo un decimal)
+		//Format number (show only one decimal)
 		DecimalFormat df= new DecimalFormat("#0.0");
 		
+		//Show cps and cpc
 		textViewCps.setText(df.format(cps));
 		textViewCpc.setText(df.format(cpc));
 		
+		//Manual update all rows of listviews
 		updateListViewItemsManual();
 		updateListViewPowerUpsManual();
 	}
