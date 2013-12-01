@@ -75,28 +75,28 @@ public class GameActivity extends Activity {
 	
 		List<LogicPowerUps> pUps = new ArrayList<LogicPowerUps>();
 		
-		pUps.add(new LogicPowerUps(100, "Reinforced index finger", 0, 0.1, 10, 1, 1));		
-		pUps.add(new LogicPowerUps(101, "Ambidextrous", 1, 2, 10000, 10, 1));
-		pUps.add(new LogicPowerUps(102, "Forwards from grandma", 0, 0.3, 1000, 1, 2));
-		pUps.add(new LogicPowerUps(103, "Lubricated dentures", 1, 2, 100000, 10, 2));
-		pUps.add(new LogicPowerUps(104, "Cheap hoes", 0, 1, 5000, 1, 3));
-		pUps.add(new LogicPowerUps(105, "Cookie trees", 1, 2, 500000, 10, 3));
-		pUps.add(new LogicPowerUps(106, "Sturdier conveyor belts", 0, 4, 30000, 1, 4));
-		pUps.add(new LogicPowerUps(107, "Sweatshop", 1, 2, 3000000, 10, 4));
-		pUps.add(new LogicPowerUps(108, "Sugar gas", 0, 10, 100000, 1, 5));
-		pUps.add(new LogicPowerUps(109, "Ultradrill", 1, 2, 10000000, 10, 5));
-		pUps.add(new LogicPowerUps(110, "Vanilla nebulae", 0, 30, 400000, 1, 6));
-		pUps.add(new LogicPowerUps(111, "Frequent flyer", 1, 2, 40000000, 10, 6));
-		pUps.add(new LogicPowerUps(112, "Antimony", 0, 100, 2000000, 1, 7));
-		pUps.add(new LogicPowerUps(113, "True chocolate", 1, 2, 200000000, 10, 7));
-		pUps.add(new LogicPowerUps(114, "Ancient tablet", 0, 1666, 16666660, 1, 8));
-		pUps.add(new LogicPowerUps(115, "Soul bond", 1, 2, 1666666000, 10, 8));
-		pUps.add(new LogicPowerUps(116, "Flux capacitors", 0, 9876, 1234567890, 1, 9));
-		pUps.add(new LogicPowerUps(117, "Quantum conundrum", 1, 2, 98765456789L, 1, 9));
-		pUps.add(new LogicPowerUps(118, "Sugar bosons", 0, 99999, 39999999990L, 1, 10));
-		pUps.add(new LogicPowerUps(119, "Large macaron collider", 1, 2, 3999999999000L, 10, 10));
-		pUps.add(new LogicPowerUps(120, "Sugar cookies", 1, 5, 99999999, 9999999, -1));
-		pUps.add(new LogicPowerUps(121, "Double-chip cookies", 1, 10, 99999999999L, 999999999 , -1));
+		pUps.add(new LogicPowerUps(100, "Reinforced index finger", 0, 0.1, 10, 1, 1, "prod prod"));		
+		pUps.add(new LogicPowerUps(101, "Ambidextrous", 1, 2, 10000, 10, 1, "Look ma, both hands!"));
+		pUps.add(new LogicPowerUps(102, "Forwards from grandma", 0, 0.3, 1000, 1, 2, "RE:RE:thought you'd get a kick out of this ;))"));
+		pUps.add(new LogicPowerUps(103, "Lubricated dentures", 1, 2, 100000, 10, 2, "squish"));
+		pUps.add(new LogicPowerUps(104, "Cheap hoes", 0, 1, 5000, 1, 3, "Rake in the dough!"));
+		pUps.add(new LogicPowerUps(105, "Cookie trees", 1, 2, 500000, 10, 3, "A relative of the breadfruit."));
+		pUps.add(new LogicPowerUps(106, "Sturdier conveyor belts", 0, 4, 30000, 1, 4, "You're going places."));
+		pUps.add(new LogicPowerUps(107, "Sweatshop", 1, 2, 3000000, 10, 4, "Slackers will be terminated."));
+		pUps.add(new LogicPowerUps(108, "Sugar gas", 0, 10, 100000, 1, 5, "A cheap, volatile gas, found in the depths of some chocolate caves."));
+		pUps.add(new LogicPowerUps(109, "Ultradrill", 1, 2, 10000000, 10, 5, "Finally caved in?"));
+		pUps.add(new LogicPowerUps(110, "Vanilla nebulae", 0, 30, 400000, 1, 6, "If you removed your space helmet, you could probably smell it! (Note : don't do that.)"));
+		pUps.add(new LogicPowerUps(111, "Frequent flyer", 1, 2, 40000000, 10, 6, "Come back soon!"));
+		pUps.add(new LogicPowerUps(112, "Antimony", 0, 100, 2000000, 1, 7, "Actually worth a lot of mony."));
+		pUps.add(new LogicPowerUps(113, "True chocolate", 1, 2, 200000000, 10, 7, "The purest form of cacao."));
+		pUps.add(new LogicPowerUps(114, "Ancient tablet", 0, 1666, 16666660, 1, 8, "A strange slab of peanut brittle, holding an ancient cookie recipe. Neat!"));
+		pUps.add(new LogicPowerUps(115, "Soul bond", 1, 2, 1666666000, 10, 8, "So I just sign up and get more cookies? Sure, whatever!"));
+		pUps.add(new LogicPowerUps(116, "Flux capacitors", 0, 9876, 1234567890, 1, 9, "Bake to the future."));
+		pUps.add(new LogicPowerUps(117, "Quantum conundrum", 1, 2, 98765456789L, 1, 9, "There is only one constant, and that is universal uncertainty. Or is it?"));
+		pUps.add(new LogicPowerUps(118, "Sugar bosons", 0, 99999, 39999999990L, 1, 10, "Sweet firm bosons."));
+		pUps.add(new LogicPowerUps(119, "Large macaron collider", 1, 2, 3999999999000L, 10, 10, "How singular!"));
+		pUps.add(new LogicPowerUps(120, "Sugar cookies", 1, 5, 99999999, 9999999, -1, "Tasty, if a little unimaginative."));
+		pUps.add(new LogicPowerUps(121, "Double-chip cookies", 1, 10, 99999999999L, 999999999 , -1, "DOUBLE THE CHIPS DOUBLE THE TASTY (double the calories)"));
 		
 		LogicGame.setPups(pUps);		
 		
@@ -239,6 +239,21 @@ public class GameActivity extends Activity {
 	    		//Notificacion
 				showNotification(powerUpSeleccionada.getName() + " Comprado!");
 			};
+		});
+			
+		listBoost.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+			@Override
+			 public boolean onItemLongClick(AdapterView<?> adapter, View view,
+                    int position, long id) {
+	        	
+	        	final LogicPowerUps powerUp = (LogicPowerUps) adapter.getItemAtPosition(position);
+                
+	        	Builder alert = createDialogFromActivity(powerUp.getName(), "(" + powerUp.getDescription() +")");
+	        	      
+	        	alert.create().show();	
+                return true;
+            }	
 		});
 				
 		handler = new CookieHandler(cookiesCount, cps, cpc, listLogicItems, listBoost);

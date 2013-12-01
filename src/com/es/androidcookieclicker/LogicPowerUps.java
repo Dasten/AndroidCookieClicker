@@ -30,7 +30,7 @@ public class LogicPowerUps extends Item
 	 * @param itemIdToBoost the item id to boost
 	 */
 	public LogicPowerUps(int id, String name, int boostType, double boost,
-			long price, int lvlRequired, int itemIdToBoost) {
+			long price, int lvlRequired, int itemIdToBoost, String description) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -39,6 +39,7 @@ public class LogicPowerUps extends Item
 		this.price = price;
 		this.lvlRequired = lvlRequired;
 		this.itemIdToBoost = itemIdToBoost;
+		this.description = description;
 		this.purchasable = false;
 		this.removed = false;
 	}

@@ -240,8 +240,7 @@ public class LogicGame {
 			
 			if(pups.contains(powerUp)) {
 				pups.remove(powerUp);
-			}
-			
+			}	
 			if(LogicGame.cookies >= powerUp.getPrice()) {
 				powerUp.setPurchasable(true);
 			} else {

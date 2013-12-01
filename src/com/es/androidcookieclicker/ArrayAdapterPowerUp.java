@@ -43,7 +43,6 @@ public class ArrayAdapterPowerUp extends ArrayAdapter<LogicPowerUps> {
 	
 	@Override
 	public View getView(int position, View view, ViewGroup vg){
-
 		View vi = view;
 		LogicPowerUps powerUp = getItem(position);
 		
@@ -67,7 +66,10 @@ public class ArrayAdapterPowerUp extends ArrayAdapter<LogicPowerUps> {
 			name.setText(powerUp.getName());
 			price.setText(LogicGame.formatNumber(powerUp.getPrice())+"");
 					
-			if(isEnabled(position)){
+			
+			/*isEnabled(position)*/
+			
+			if(powerUp.isPurchasable()){
 				vi.setEnabled(true);
 				price.setTextColor(Color.parseColor("#1CBC17"));
 		    } else {
@@ -82,11 +84,13 @@ public class ArrayAdapterPowerUp extends ArrayAdapter<LogicPowerUps> {
 		return vi;
 	}
 	
+	
 	@Override
 	public boolean isEnabled(int position) {
 	    LogicPowerUps powerUp = getItem(position);
 		
 		return (powerUp.isPurchasable());
 	}
+	
 }
 
