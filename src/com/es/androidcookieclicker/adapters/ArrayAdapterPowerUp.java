@@ -57,11 +57,9 @@ public class ArrayAdapterPowerUp extends ArrayAdapter<LogicPowerUps> {
 				vi = inflater.inflate(R.layout.list_row_powerups, null);
 			}
 			
-			
 			TextView name = (TextView)vi.findViewById(R.id.name_powerup);
 			TextView price = (TextView)vi.findViewById(R.id.price_powerup);	
 			ImageView image = (ImageView)vi.findViewById(R.id.image_powerup);
-			
 			
 			int resId = rs.getIdentifier("image_list_up"+powerUp.getId(), "drawable", packageName);
 						
@@ -70,8 +68,6 @@ public class ArrayAdapterPowerUp extends ArrayAdapter<LogicPowerUps> {
 			name.setText(powerUp.getName());
 			price.setText(LogicGame.formatNumber(powerUp.getPrice())+"");
 					
-			
-			/*isEnabled(position)*/
 			
 			if(powerUp.isPurchasable()){
 				vi.setEnabled(true);
